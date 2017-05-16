@@ -1,0 +1,5 @@
+SELECT * FROM (
+SELECT ROWNUM rn,t1.* FROM
+(SELECT * FROM emp ORDER BY empno asc) t1
+WHERE ROWNUM<=20) t2
+WHERE T2.rn >=10;

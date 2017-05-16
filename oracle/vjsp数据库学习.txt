@@ -1,0 +1,33 @@
+AUTOENTITY --自动mybatis insert
+
+查询模块表名字:
+		SELECT TB_SYSTEM_TABLE_NAME
+		INTO   v_DTABLE
+		FROM   TB_System_Column_MK
+		WHERE  TB_SYSTEM_MK_ID = 520
+		AND    TB_SYSTEM_TYPE_ID = v_DLBID --类型id
+		AND    TB_SYSTEM_GN_ID = 2;
+
+查询模块column:
+  SELECT WM_CONCAT(E.TDY_COLUMN_ENAME)
+  INTO   v_COLNAME
+  FROM   TB_System_Column_MK A
+  LEFT   JOIN TDY_System_MK_Column B
+  ON     A.TB_System_MK_ID = B.TB_System_MK_ID AND
+         A.TB_System_Type_ID = B.TB_System_Type_ID AND
+         A.TB_System_Gn_ID = B.TB_System_Gn_ID
+  LEFT   JOIN TDY_System_Column_Info E
+  ON     B.TDY_Column_ID = E.TDY_Column_ID
+  WHERE  (A.TB_System_MK_ID = v_SMKID AND A.TB_System_Type_ID = v_SLBID AND
+         A.TB_System_Gn_ID = 2) AND
+         E.TDY_COLUMN_ENAME IN
+         (SELECT E.TDY_COLUMN_ENAME
+          FROM   TB_System_Column_MK A
+          LEFT   JOIN TDY_System_MK_Column B
+          ON     A.TB_System_MK_ID = B.TB_System_MK_ID AND
+                 A.TB_System_Type_ID = B.TB_System_Type_ID AND
+                 A.TB_System_Gn_ID = B.TB_System_Gn_ID
+          LEFT   JOIN TDY_System_Column_Info E
+          ON     B.TDY_Column_ID = E.TDY_Column_ID
+          WHERE  (A.TB_System_MK_ID = v_DMKID AND
+                 A.TB_System_Type_ID = v_DLBID AND A.TB_System_Gn_ID = 2));

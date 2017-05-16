@@ -1,0 +1,4 @@
+dbms_utility.exec_ddl_statement('alert user test identified by test');
+
+SELECT dbms_utility.port_string FROM dual;
+call dbms_utility.get_dependency('TABLE', 'TEST', 'T_ORG');

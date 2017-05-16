@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GBK"?>
+<table>
+	<column>
+		<table_name>TABA</table_name>
+		<column_name>ID</column_name>
+		<data_type>VARCHAR2</data_type>
+		<data_length>10</data_length>
+		<nullable>N</nullable>
+		<column_id>1</column_id>
+		<prim>1</prim>
+	</column>
+	<column>
+		<table_name>TABA</table_name>
+		<column_name>DESCRIPT</column_name>
+		<data_type>VARCHAR2</data_type>
+		<data_length>10</data_length>
+		<nullable>Y</nullable>
+		<column_id>2</column_id>
+		<prim>null</prim>
+	</column>
+</table>
