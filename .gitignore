@@ -2,3 +2,8 @@ out
 .idea
 .git
 target
+build.log
+.settings
+.project
+.classpath
+.factorypath
