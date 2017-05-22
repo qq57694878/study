@@ -1,6 +1,9 @@
-package com.ljl;
+package com.ljl.tem;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,7 +17,7 @@ b();
     public static void a()throws Exception{
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("D:\\ideaWorkspace\\svn_background\\vjspdemo\\src\\test\\resources\\123.sql")));
         String s=null;
-        java.util.regex.Pattern p = Pattern.compile("(\\s*constraint\\s+)(\\w+)(\\s+check\\s+\\(.*)(,)");
+        Pattern p = Pattern.compile("(\\s*constraint\\s+)(\\w+)(\\s+check\\s+\\(.*)(,)");
         StringBuffer sb = new StringBuffer();
         while((s=reader.readLine())!=null){
             //"      constraint CKC_OPER_TYPE_ORD_PART1 check (OPER_TYPE is null or (OPER_TYPE in ('1000','1100','1200'))),"
@@ -38,7 +41,7 @@ b();
     public static void b()throws Exception{
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("D:\\ideaWorkspace\\svn_background\\vjspdemo\\src\\test\\resources\\123.sql")));//11111111111.pdc
         String s=null;
-        java.util.regex.Pattern p = Pattern.compile("create table (\\w+)");
+        Pattern p = Pattern.compile("create table (\\w+)");
         StringBuffer sb = new StringBuffer();
         int count =0;
         while((s=reader.readLine())!=null){
