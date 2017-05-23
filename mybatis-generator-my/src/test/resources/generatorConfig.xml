@@ -37,15 +37,14 @@
         </javaClientGenerator>
 
         <!-- !!!! Table Configurations !!!! -->
-        <table tableName="city" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
-               enableUpdateByExample="true"/>
-        <table tableName="EMP" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
-               enableUpdateByExample="true"/>
-        <table tableName="DEPT" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
-               enableUpdateByExample="true"/>
-        <table tableName="BONUS" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
-               enableUpdateByExample="true"/>
-        <table tableName="SALGRADE" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
-               enableUpdateByExample="true"/>
+
+        <table tableName="EMP" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+        <table tableName="DEPT" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+        <table tableName="BONUS" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+        <table tableName="SALGRADE" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false"/>
     </context>
 </generatorConfiguration>
