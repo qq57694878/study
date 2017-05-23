@@ -1,12 +1,8 @@
-package com.ljl.controller;
+package com.ljl.study.controller;
 
-import com.ljl.dao.CityDao;
-import com.ljl.dao.ClassDao;
-import com.ljl.domain.City;
-import com.ljl.domain.ClassEntity;
+import com.ljl.study.dao.ClassDao;
+import com.ljl.study.entity.ClassEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

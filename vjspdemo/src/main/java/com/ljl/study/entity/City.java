@@ -1,4 +1,4 @@
-package com.ljl.domain;
+package com.ljl.study.entity;
 
 /**
  * Created by jinliang on 2017/4/18.

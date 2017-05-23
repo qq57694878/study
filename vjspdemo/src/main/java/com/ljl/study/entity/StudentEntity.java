@@ -1,17 +1,13 @@
-package com.ljl.domain;
-
-import java.util.List;
+package com.ljl.study.entity;
 
 /**
  * Created by Administrator on 2017/4/21.
  */
-public class ClassEntity {
+public class StudentEntity {
 
     private Integer id ;
 
     private String name;
-
-    List<StudentEntity> students;
 
 
     public Integer getId() {
@@ -30,20 +26,11 @@ public class ClassEntity {
         this.name = name;
     }
 
-    public List<StudentEntity> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<StudentEntity> students) {
-        this.students = students;
-    }
-
     @Override
     public String toString() {
-        return "ClassEntity{" +
+        return "StudentEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", students=" + students +
                 '}';
     }
 }

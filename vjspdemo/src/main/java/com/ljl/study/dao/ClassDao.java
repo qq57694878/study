@@ -1,6 +1,6 @@
-package com.ljl.dao;
+package com.ljl.study.dao;
 
-import com.ljl.domain.ClassEntity;
+import com.ljl.study.entity.ClassEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

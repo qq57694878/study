@@ -1,6 +1,6 @@
-package com.ljl.dao;
+package com.ljl.study.dao;
 
-import com.ljl.domain.City;
+import com.ljl.study.entity.City;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
