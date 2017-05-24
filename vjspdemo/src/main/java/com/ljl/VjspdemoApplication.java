@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@MapperScan("com.ljl.study.dao")
 public class VjspdemoApplication {
 
 	public static void main(String[] args) {

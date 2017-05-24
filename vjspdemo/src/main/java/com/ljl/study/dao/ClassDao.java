@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/4/21.
  */
-@Mapper
+
 public interface ClassDao {
     public List<ClassEntity> selectClassList();
 }

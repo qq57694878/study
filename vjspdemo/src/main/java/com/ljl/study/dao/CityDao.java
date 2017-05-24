@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * Created by jinliang on 2017/4/18.
  */
-@Mapper
+
 public interface CityDao {
     public City selectCityById(String id);
 
