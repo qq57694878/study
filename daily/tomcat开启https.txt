@@ -1,0 +1,7 @@
+ keytool -genkey -alias tomcat -keyalg RSA -keystore "D:/apache-tomcat-7.0.76/keystore/tomcat.keystore"
+
+ 	    <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
+                clientAuth="false" sslProtocol="TLS"
+ 			   keystoreFile="D:/apache-tomcat-7.0.76/keystore/tomcat.keystore"
+                keystorePass="tomcat"/>

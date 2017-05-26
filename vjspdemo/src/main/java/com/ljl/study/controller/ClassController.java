@@ -1,6 +1,6 @@
 package com.ljl.study.controller;
 
-import com.ljl.study.dao.ClassDao;
+import com.ljl.study.mapper.ClassDao;
 import com.ljl.study.entity.ClassEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
