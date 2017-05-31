@@ -1,4 +1,4 @@
-package com.ljl.study.entity;
+package com.ljl.entity;
 
 public class Bonus {
     /**

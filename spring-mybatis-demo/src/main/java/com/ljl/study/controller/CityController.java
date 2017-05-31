@@ -1,7 +1,8 @@
 package com.ljl.study.controller;
 
-import com.ljl.study.mapper.CityDao;
 import com.ljl.entity.City;
+import com.ljl.study.mapper.CityDao;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

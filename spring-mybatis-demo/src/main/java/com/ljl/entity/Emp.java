@@ -1,4 +1,4 @@
-package com.ljl.study.entity;
+package com.ljl.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;

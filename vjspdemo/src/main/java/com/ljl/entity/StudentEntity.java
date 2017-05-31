@@ -1,4 +1,4 @@
-package com.ljl.study.entity;
+package com.ljl.entity;
 
 /**
  * Created by Administrator on 2017/4/21.

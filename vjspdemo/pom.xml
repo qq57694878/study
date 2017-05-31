@@ -6,7 +6,7 @@
 	<groupId>com.ljl</groupId>
 	<artifactId>vjspdemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+    <packaging>pom</packaging>
 
 	<name>vjspdemo</name>
 	<description>Demo project for Spring Boot</description>
