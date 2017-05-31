@@ -1,12 +1,18 @@
 package com.ljl.study.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.ljl.study.mapper.CityDao;
 import com.ljl.entity.City;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by jinliang on 2017/4/18.
@@ -17,8 +23,21 @@ public class CityController {
     @Autowired
     private CityDao cityDao;
 
+    @RequestMapping("/selectAll")
+    public Object selectCityAll(HttpServletRequest request) {
+        PageHelper.startPage(request);
+        List<City> list = cityDao.selectCityAll();
+        if (list != null) {
+            Page<City> citys = (Page<City>)list;
+            citys.getTotal();
+            System.out.println(citys.toString());
+            return citys;
+        }
+        return "未找到";
+    }
+
     @RequestMapping("/select/{id}")
-    public String selectCityById(@PathVariable("id") String id) {
+    public Object selectCityById(@PathVariable("id") String id) {
         City city = cityDao.selectCityById(id);
         if (city != null) {
             return city.toString();
@@ -27,7 +46,7 @@ public class CityController {
     }
 
     @RequestMapping("/save")
-    public String saveCity(@RequestBody City city) {
+    public Object saveCity(@RequestBody City city) {
         if (city.getId() != null && city.getId().length() > 0) {
             cityDao.updateCity(city);
         } else {
@@ -38,12 +57,12 @@ public class CityController {
     }
 
     @RequestMapping("/delete/{id}")
-    public String deleteCity(@PathVariable("id") String id) {
+    public Object deleteCity(@PathVariable("id") String id) {
         cityDao.deleteCity(id);
         return "删除成功";
     }
     @RequestMapping("/a")
-    public String a() {
+    public Object a() {
         System.out.println(Thread.currentThread().getId());
         synchronized (this){
             try {
