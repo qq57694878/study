@@ -1,5 +1,6 @@
 package com.ljl.tem;
 
+import java.lang.reflect.Parameter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,4 +13,14 @@ public class A {
         Matcher m = p.matcher("  1    constraint CKC_BEGIN_TIME_TYPE_DISCOUNT check (BEGIN_TIME_TYPE in (1,2)),");
         System.out.println(m.matches());
     }
+    public void test1(){
+        String s="";
+        String[]array = new String[]{"",""};
+        Pattern p = Pattern.compile("[0123456789]");
+        Matcher m = p.matcher(s);
+        StringBuffer sb = new StringBuffer();
+
+
+    }
+
 }
