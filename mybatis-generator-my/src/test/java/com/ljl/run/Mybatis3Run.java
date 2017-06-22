@@ -24,7 +24,10 @@ public class Mybatis3Run {
     public  void generateJavaFiles() throws Exception {
          generateJavaFiles("/generatorConfig.xml");
     }
-
+    @Test
+    public  void generateJavaFilesHgc35() throws Exception {
+        generateJavaFiles("/generator_config_hgc_172.17.17.35.xml");
+    }
 
     private void generateJavaFiles(String configFile) throws Exception {
         List<String> warnings = new ArrayList<String>();
