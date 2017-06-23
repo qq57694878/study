@@ -1,0 +1,1 @@
+drop table VJSP_BUSINESS_CARD cascade constraints;
