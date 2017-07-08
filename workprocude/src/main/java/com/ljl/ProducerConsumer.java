@@ -22,16 +22,26 @@ public class ProducerConsumer {
 
         Storage s = pc.new Storage();
 
-        ExecutorService service = Executors.newCachedThreadPool();
+       // ExecutorService service = Executors.newCachedThreadPool();
         Producer p = pc.new Producer("张三", s);
         Producer p2 = pc.new Producer("李四", s);
         Consumer c = pc.new Consumer("王五", s);
         Consumer c2 = pc.new Consumer("老刘", s);
         Consumer c3 = pc.new Consumer("老林", s);
-        service.submit(p);
+        Thread tp1 = new Thread(p);
+        tp1.start();
+        Thread tp2 = new Thread(p2);
+        tp2.start();
+        Thread tc1 = new Thread(c);
+        tc1.start();
+        Thread tc2 = new Thread(c2);
+        tc2.start();
+        Thread tc3 = new Thread(c3);
+        tc3.start();
+ /*       service.submit(p);
         service.submit(p2);
         service.submit(c);
-/*        service.submit(c2);
+        service.submit(c2);
         service.submit(c3);*/
         
     }
@@ -55,10 +65,11 @@ public class ProducerConsumer {
             try {
                 while (true) {
                     System.out.println(name + "准备消费产品.");
+                    Thread.sleep(1000);
                     Product product = s.pop();
                     System.out.println(name + "已消费(" + product.toString() + ").");
                     System.out.println("===============");
-                    Thread.sleep(1000);
+
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -88,10 +99,10 @@ public class ProducerConsumer {
                 while (true) {
                     Product product = new Product((int) (Math.random() * 10000)); // 产生0~9999随机整数
                     System.out.println(name + "准备生产(" + product.toString() + ").");
+                    Thread.sleep(1000);
                     s.push(product);
                     System.out.println(name + "已生产(" + product.toString() + ").");
                     System.out.println("===============");
-                    Thread.sleep(1000);
                 }
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
@@ -119,7 +130,7 @@ public class ProducerConsumer {
             return queues.take();
         }
     }*/
-   /* public class Storage {
+    public class Storage {
         private final int BOOLSIZE = 10;
         private Storage(){
             queues = new  Product[BOOLSIZE];
@@ -129,18 +140,18 @@ public class ProducerConsumer {
         private int curIndex;
         private Lock lock = new ReentrantLock();
 
-        private final Condition notEmpty = lock.newCondition();
+        private final Condition empty = lock.newCondition();
 
-        private final Condition notFull = lock.newCondition();
+        private final Condition full = lock.newCondition();
 
         public void push(Product p) throws InterruptedException {
             try{
                 lock.lock();
                 while(curIndex>=BOOLSIZE) {
-                    this.wait();
+                    full.await();
                 }
-                    queues[++curIndex]=p;
-                    this.notify();
+                queues[++curIndex]=p;
+                empty.signal();
             }catch (Exception e){
                e.printStackTrace();
             }finally {
@@ -155,11 +166,11 @@ public class ProducerConsumer {
             try{
                 lock.lock();
                 while(curIndex<=0){
-                    this.wait();
+                    empty.await();
                 }
 
-                    p=queues[curIndex--];
-                    this.notify();
+                p=queues[curIndex--];
+                full.signal();
             }catch (Exception e){
                 e.printStackTrace();
             }finally {
@@ -167,8 +178,8 @@ public class ProducerConsumer {
             }
             return p;
         }
-    }*/
-    public class Storage {
+    }
+    /*public class Storage {
         private final int BOOLSIZE = 10;
         private Storage(){
             queues = new  Product[BOOLSIZE];
@@ -189,17 +200,19 @@ public class ProducerConsumer {
 
 
         public Product pop() throws InterruptedException {
-            Product p=null;
+
            synchronized (this){
+               Product p=null;
                while(curIndex<0){
                    this.wait();
                }
                p=queues[curIndex--];
                this.notify();
+               return p;
            }
-            return p;
+
         }
-    }
+    }*/
     /**
      * 产品
      * 
