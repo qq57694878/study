@@ -1,9 +1,11 @@
 package com.ljl.thinking.po;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/7/13/013.
  */
-public class O1 implements Comparable<O1>{
+public class O1 implements Comparable<O1>,Serializable{
     private int id;
 
     public O1(int id) {
