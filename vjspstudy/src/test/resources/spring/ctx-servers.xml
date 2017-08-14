@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.ljl">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <import resource="classpath:spring/ctx-a.xml"/>
+    <import resource="classpath:spring/ctx-b.xml"/>
+    <import resource="classpath:spring/ctx-c.xml"/>
+      <beans default-lazy-init="true">
+          <bean id="server" class="com.ljl.section1_6.Server" lazy-init="true"></bean>
+          <bean id="ServiceStaticFactory" class="com.ljl.section1_6.ServiceStaticFactory" factory-method="getInstance"></bean>
+          <bean id="ServiceFactory" class="com.ljl.section1_6.ServiceFactory" ></bean>
+          <bean id="ServiceA" class="com.ljl.section1_6.ServiceA" factory-bean="ServiceFactory" factory-method="createServiceA" >
+          </bean>
+          <bean id="ServiceA1" class="com.ljl.section1_6.ServiceA" factory-bean="ServiceFactory" factory-method="createServiceA" >
+
+          </bean>
+         <bean id="foo" class="com.ljl.section1_6.Foo">
+             <constructor-arg ref="Bar"></constructor-arg>
+             <constructor-arg ref="Baz"></constructor-arg>
+         </bean>
+          <bean id="fooc" class="com.ljl.section1_6.Foo" c:bar-ref="Bar" c:baz-ref="Baz">
+          </bean>
+          <bean id="ServiceB" class="com.ljl.section1_6.ServiceA$ServiceB"></bean>
+          <bean id="Bar" class="com.ljl.section1_6.Foo$Bar"></bean>
+          <bean id="Baz" class="com.ljl.section1_6.Foo$Baz"></bean>
+          <bean id="exampleBean" class="com.ljl.section1_6.ExampleBean">
+              <constructor-arg type="int" value="7500000"/>
+              <constructor-arg type="java.lang.String" value="42"/>
+          </bean>
+          <bean id="exampleBean1" class="com.ljl.section1_6.ExampleBean">
+              <constructor-arg index="0" value="7500000"/>
+              <constructor-arg index="1"  value="42"/>
+          </bean>
+
+
+          <bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+                destroy-method="close"
+                p:driverClassName="com.mysql.jdbc.Driver"
+                p:url="jdbc:mysql://localhost:3306/test"
+                p:username="root"
+                p:password="qq7073339"/>
+          <bean id="oracleDataSource" class="com.alibaba.druid.pool.DruidDataSource"
+                destroy-method="close"
+                p:driverClassName="oracle.jdbc.driver.OracleDriver"
+                p:url="jdbc:oracle:thin:@localhost:1521:orcl"
+                p:username="test"
+                p:password="test"/>
+          <alias name="oracleDataSource" alias="myDataSource"></alias>
+          <bean id="complexBean" class="com.ljl.section1_6.ComplexBean" p:dataSource-ref="myDataSource">
+              <property name="properties">
+                  <props>
+                      <prop key="administrator">administrator@example.org</prop>
+                      <prop key="support">support@example.org</prop>
+                      <prop key="development">development@example.org</prop>
+                      <prop key="1">
+                      </prop>
+                  </props>
+              </property>
+              <property name="someList">
+                  <list>
+                      <value>a list element followed by a reference</value>
+                      <null/>
+                      <ref bean="myDataSource" />
+                  </list>
+              </property>
+              <property name="someMap">
+                  <map>
+                      <entry key="an entry" value="just some string"/>
+                      <entry key ="a ref" value-ref="myDataSource"/>
+                  </map>
+              </property>
+              <property name="someSet">
+                  <set>
+                      <value>just some string</value>
+                      <ref bean="myDataSource" />
+                  </set>
+              </property>
+          </bean>
+
+
+      </beans>
+</beans>

@@ -64,7 +64,7 @@ RETURN VARCHAR2 IS
   V_SET VARCHAR2(4000):='';
     V_WHERE VARCHAR2(4000):='';
 BEGIN
-  FOR V_CUR1 IN (SELECT T1.COLUMN_NAME ,CASE WHEN EXISTS(SELECT 1 FROM   user_cons_columns A, user_constraints B WHERE A.constraint_name = B.constraint_name  AND B.constraint_type='P' AND A.column_name=T1.COLUMN_NAME AND A.table_name=T1.TABLE_NAME) THEN 1 ELSE 0 END PK_BJ
+  FOR V_CUR1 IN (SELECT T1.COLUMN_NAME ,CASE WHEN EXISTS(SELECT 1 FROM   user_cons_columns com.ljl.section1_6.A, user_constraints com.ljl.section1_6.B WHERE com.ljl.section1_6.A.constraint_name = com.ljl.section1_6.B.constraint_name  AND com.ljl.section1_6.B.constraint_type='P' AND com.ljl.section1_6.A.column_name=T1.COLUMN_NAME AND com.ljl.section1_6.A.table_name=T1.TABLE_NAME) THEN 1 ELSE 0 END PK_BJ
 FROM USER_TAB_COLUMNS T1
 WHERE T1.TABLE_NAME=V_TABLE_NAME ORDER BY T1.COLUMN_ID  )
 LOOP
@@ -87,7 +87,7 @@ RETURN VARCHAR2 IS
   V_SQL  VARCHAR2(4000):='';
     V_WHERE VARCHAR2(4000):='';
 BEGIN
-  FOR V_CUR1 IN (SELECT A.column_name FROM user_cons_columns A, user_constraints B WHERE A.constraint_name = B.constraint_name  AND B.constraint_type='P' AND A.table_name=V_TABLE_NAME)
+  FOR V_CUR1 IN (SELECT com.ljl.section1_6.A.column_name FROM user_cons_columns com.ljl.section1_6.A, user_constraints com.ljl.section1_6.B WHERE com.ljl.section1_6.A.constraint_name = com.ljl.section1_6.B.constraint_name  AND com.ljl.section1_6.B.constraint_type='P' AND com.ljl.section1_6.A.table_name=V_TABLE_NAME)
 LOOP
     V_WHERE := V_WHERE||V_CUR1.COLUMN_NAME||'=:OLD.'||V_CUR1.COLUMN_NAME||' AND ';
   END LOOP;

@@ -49,7 +49,7 @@
 	<!-- Available parameters :                                                -->
 	<!--   source.foldern : n = 1 ... N, the source folders                    -->
 	<!--   target.folder  : where the results of the compilation go            -->
-	<!--   <name>.classpath : name = name of the compilation target. A         -->
+	<!--   <name>.classpath : name = name of the compilation targcom.ljl.At. A         -->
 	<!--                      reference to the classpath structure.            -->
 	<!-- ===================================================================== -->
 	<target name="pre.name">
@@ -65,7 +65,7 @@
 	<!-- Available parameters :                                                -->
 	<!--   source.foldern : n = 1 ... N, the source folders                    -->
 	<!--   target.folder  : where the results of the compilation go            -->
-	<!--   <name>.classpath : name = name of the compilation target. A         -->
+	<!--   <name>.classpath : name = name of the compilation targcom.ljl.At. A         -->
 	<!--                      reference to the classpath structure.            -->
 	<!-- ===================================================================== -->
 	<target name="post.compile.name">
@@ -79,7 +79,7 @@
 	<!-- Substitute "name" with the name of the compilation target, eg @dot    -->
 	<!-- Available parameters :                                                -->
 	<!--   jar.location - the location of the compilation results              -->
-	<!--   <name>.classpath : name = name of the compilation target. A         -->
+	<!--   <name>.classpath : name = name of the compilation targcom.ljl.At. A         -->
 	<!--                      reference to the classpath structure.            -->
 	<!-- ===================================================================== -->
 	<target name="post.name">

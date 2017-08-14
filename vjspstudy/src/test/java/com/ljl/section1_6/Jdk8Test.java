@@ -1,4 +1,4 @@
-package com.ljl;
+package com.ljl.section1_6;
 
 import org.junit.Test;
 

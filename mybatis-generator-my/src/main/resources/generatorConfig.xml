@@ -5,7 +5,7 @@
 <generatorConfiguration>
     <properties resource="application.properties"></properties>
     <!-- !!!! Driver Class Path !!!! -->
-    <classPathEntry location="C:\Users\Administrator\.m2\repository\com\oracle\ojdbc6\11.2.0.3\ojdbc6-11.2.0.3.jar"/>
+    <classPathEntry location="com.ljl.section1_6.C:\Users\Administrator\.m2\repository\com\oracle\ojdbc6\11.2.0.3\ojdbc6-11.2.0.3.jar"/>
 
     <context id="context" targetRuntime="MyBatis3">
         <commentGenerator>

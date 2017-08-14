@@ -30,6 +30,7 @@ begin
      fetch cu_3 into r;
      exit when cu_3%notfound;
      dbms_output.put_line(cu_3%rowcount||' '||r.ename||' '||r.sal);    --输出结果,需要 set serverout on 才能显示.
+   fetch cu_3 into r;
      END LOOP;
 
   arrdata:=arrtype(1,2,3,4,5,6,7,8,9,0);

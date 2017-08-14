@@ -140,4 +140,4 @@ if "%MAVEN_BATCH_PAUSE%" == "on" pause
 
 if "%MAVEN_TERMINATE_CMD%" == "on" exit %ERROR_CODE%
 
-exit /B %ERROR_CODE%
+exit /com.ljl.section1_6.B %ERROR_CODE%

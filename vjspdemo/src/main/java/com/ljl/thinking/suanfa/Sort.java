@@ -172,12 +172,19 @@ public class Sort {
             }
         }
     }
+
+    /**
+     * 希尔排序
+     * @param data
+     * @param low
+     * @param high
+     */
    public static void shellSort(int[] data, int low, int high){
         int len = high - low +1;
         for(int grap=len/2;grap>=1;grap/=2){ //进行多少次组内插入排序
             for(int i=grap;i<len;i+=grap){//对组内元素按交换插入排序
-                for(int j=i;j>0&&data[j]<data[j-1];j-=grap){
-                    swap(data,j,j-1);
+                for(int j=i;j>0&&data[j]<data[j-grap];j-=grap){
+                    swap(data,j,j-grap);
                 }
             }
         }

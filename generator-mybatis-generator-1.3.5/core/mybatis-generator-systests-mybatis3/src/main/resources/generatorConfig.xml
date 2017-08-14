@@ -49,14 +49,14 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
       <columnOverride column="stringBoolean" javaType="boolean" typeHandler="mbg.test.mb3.common.StringBooleanTypeHandler"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="JDBC" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -105,13 +105,13 @@
     <table tableName="FieldsOnly" domainObjectName="subpackage.FieldsOnlyEntity"
            mapperName="different.subpackage.FieldsOnlyMapper" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="HSQLDB" identity="true" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -155,13 +155,13 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="HSQLDB" identity="true" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -211,7 +211,7 @@
 
     <table tableName="BlobsOnly" /> <!-- should generate a warning -->
     <table tableName="NonExistantTable" /> <!-- should generate a warning -->
-    <table tableName="PKFields" domainObjectName="MyObject" mapperName="MyMapper" alias="A" >
+    <table tableName="PKFields" domainObjectName="MyObject" mapperName="MyMapper" alias="com.ljl.section1_6.A" >
       <ignoreColumn column="fred" /> <!-- should generate a warning -->
       <ignoreColumn column="decimal30Field" />
       <columnOverride column="datefield" property="startDate"/>
@@ -325,12 +325,12 @@
     <table tableName="FieldsBlobs" />
     <table tableName="PKOnly" />
     <table tableName="PKBlobs" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <property name="immutable" value="false"/>
       <property name="constructorBased" value="true"/>
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
-    <table tableName="PKFieldsBlobs" alias="A" />
+    <table tableName="PKFieldsBlobs" alias="com.ljl.section1_6.A" />
     <table tableName="CompoundKey">
       <property name="constructorBased" value="true"/>
     </table>
@@ -355,14 +355,14 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
       <columnOverride column="stringBoolean" javaType="boolean" typeHandler="mbg.test.mb3.common.StringBooleanTypeHandler"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="JDBC" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -398,13 +398,13 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="HSQLDB" identity="true" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -441,13 +441,13 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="HSQLDB" identity="true" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -493,7 +493,7 @@
 
     <table tableName="BlobsOnly" />
     <table tableName="NonExistantTable" />
-    <table tableName="PKFields" domainObjectName="MyObject" alias="A" >
+    <table tableName="PKFields" domainObjectName="MyObject" alias="com.ljl.section1_6.A" >
       <ignoreColumn column="fred" />
       <ignoreColumn column="decimal30Field" />
       <columnOverride column="datefield" property="startDate"/>
@@ -539,12 +539,12 @@
     <table tableName="FieldsBlobs" />
     <table tableName="PKOnly" />
     <table tableName="PKBlobs" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <property name="immutable" value="false"/>
       <property name="constructorBased" value="true"/>
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
-    <table tableName="PKFieldsBlobs" alias="A" />
+    <table tableName="PKFieldsBlobs" alias="com.ljl.section1_6.A" />
   </context>
 
   <context id="FlatJava5_Mixed" defaultModelType="flat">
@@ -570,13 +570,13 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="JDBC" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -616,13 +616,13 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="HSQLDB" identity="true" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -663,13 +663,13 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="HSQLDB" identity="true" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -719,7 +719,7 @@
 
     <table tableName="BlobsOnly" />
     <table tableName="NonExistantTable" />
-    <table tableName="PKFields" domainObjectName="MyObject" alias="A" >
+    <table tableName="PKFields" domainObjectName="MyObject" alias="com.ljl.section1_6.A" >
       <ignoreColumn column="fred" />
       <ignoreColumn column="decimal30Field" />
       <columnOverride column="datefield" property="startDate"/>
@@ -761,12 +761,12 @@
     <table tableName="FieldsBlobs" />
     <table tableName="PKOnly" />
     <table tableName="PKBlobs" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <property name="immutable" value="false"/>
       <property name="constructorBased" value="true"/>
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
-    <table tableName="PKFieldsBlobs" alias="A" />
+    <table tableName="PKFieldsBlobs" alias="com.ljl.section1_6.A" />
   </context>
 
   <context id="simple" targetRuntime="MyBatis3Simple">
@@ -793,7 +793,7 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <property name="selectAllOrderByClause" value="ID1, ID2"/>
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
       <columnOverride column="stringBoolean" javaType="boolean" typeHandler="mbg.test.mb3.common.StringBooleanTypeHandler"/>
@@ -801,7 +801,7 @@
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="JDBC" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />
@@ -839,7 +839,7 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="B" >
+    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
       <property name="selectAllOrderByClause" value="ID1, ID2"/>
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
       <columnOverride column="stringBoolean" javaType="boolean" typeHandler="mbg.test.mb3.common.StringBooleanTypeHandler"/>
@@ -847,7 +847,7 @@
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="A">
+    <table tableName="awful table" alias="com.ljl.section1_6.A">
       <generatedKey column="CuStOmEr iD" sqlStatement="JDBC" />
       <columnOverride column="first name" property="firstFirstName" />
       <columnOverride column="first_name" property="secondFirstName" />

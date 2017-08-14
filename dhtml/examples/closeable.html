@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .myClass{
+            width:100px;
+            height:100px;
+            display: inline-block;
+            border:solid 1px #000000;
+        }
+    </style>
+</head>
+<body>
+<div class="myClass"></div>
+<div class="myClass"></div>
+<div class="myClass"></div>
+<div class="myClass"></div>
+<div class="myClass"></div>
+
+</body>
+<script type="text/javascript">
+    /**
+     * Created by Administrator on 2017/7/19/019.
+     */
+    var elems = document.getElementsByClassName("myClass"), i;
+    for (i = 0; i < elems.length; i++) {
+        elems[i].addEventListener("click", function () {
+            this.innerHTML = i;
+        });
+    }
+
+</script>
+</html>
