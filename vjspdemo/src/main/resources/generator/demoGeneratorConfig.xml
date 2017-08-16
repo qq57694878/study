@@ -22,7 +22,7 @@
         </javaTypeResolver>
 
         <!-- !!!! Model Configurations !!!! -->
-        <javaModelGenerator targetPackage="com.ljl.entity" targetProject="${project.root}/src/main/java">
+        <javaModelGenerator targetPackage="ljl.entity" targetProject="${project.root}/src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -33,7 +33,7 @@
         </sqlMapGenerator>
 
         <!-- !!!! Mapper Interface Configurations !!!! -->
-        <javaClientGenerator targetPackage="com.ljl.dao" targetProject="${project.root}/src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="ljl.dao" targetProject="${project.root}/src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 

@@ -18,7 +18,7 @@ BEGIN
 		IF V_START IS NOT NULL THEN
 				V_SQL := V_SQL || ' START WITH ' || REPLACE(REPLACE(V_START,'{','('),'}',')');
 		END IF;
-    V_SQL :='SELECT DES FROM (' || V_SQL || ' ) com.ljl.section1_6.A ';
+    V_SQL :='SELECT DES FROM (' || V_SQL || ' ) ljl.section1_6.A ';
     IF NVL(V_LEVEL,'0')!='0' THEN
        V_SQL := V_SQL || ' WHERE JBID<=' || V_LEVEL ;
     END IF;

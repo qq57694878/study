@@ -40,11 +40,11 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="com.ljl.section1_6.B" />
+    <table tableName="PKFields" alias="ljl.section1_6.B" />
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="com.ljl.section1_6.A">
+    <table tableName="awful table" alias="ljl.section1_6.A">
       <property name="useColumnIndexes" value="true"/>
       <generatedKey column="CuStOmEr iD" sqlStatement="JDBC" />
       <columnOverride column="first name" property="firstFirstName" />
@@ -78,11 +78,11 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="com.ljl.section1_6.B" />
+    <table tableName="PKFields" alias="ljl.section1_6.B" />
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="com.ljl.section1_6.A">
+    <table tableName="awful table" alias="ljl.section1_6.A">
       <property name="useColumnIndexes" value="true"/>
       <generatedKey column="CuStOmEr iD" sqlStatement="JDBC" />
       <columnOverride column="first name" property="firstFirstName" />
@@ -120,11 +120,11 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="com.ljl.section1_6.B" />
+    <table tableName="PKFields" alias="ljl.section1_6.B" />
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="com.ljl.section1_6.A">
+    <table tableName="awful table" alias="ljl.section1_6.A">
       <property name="useColumnIndexes" value="true"/>
       <generatedKey column="CuStOmEr iD" sqlStatement="JDBC" />
       <columnOverride column="first name" property="firstFirstName" />
@@ -162,11 +162,11 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="com.ljl.section1_6.B" />
+    <table tableName="PKFields" alias="ljl.section1_6.B" />
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="com.ljl.section1_6.A">
+    <table tableName="awful table" alias="ljl.section1_6.A">
       <property name="useColumnIndexes" value="true"/>
       <generatedKey column="CuStOmEr iD" sqlStatement="JDBC" />
       <columnOverride column="first name" property="firstFirstName" />

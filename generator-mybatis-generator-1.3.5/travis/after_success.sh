@@ -5,7 +5,7 @@ mybatis_repo=$(git config --get remote.origin.url 2>&1)
 echo "Repo detected: ${mybatis_repo}"
 
 # Get Commit Message
-commit_message=$(git log --format=%com.ljl.section1_6.B -n 1)
+commit_message=$(git log --format=%ljl.section1_6.B -n 1)
 echo "Current commit detected: ${commit_message}"
 
 # Get the Java version.

@@ -14454,7 +14454,7 @@ comment on column DEPOSIT_TYPE.DEPOSIT_TYPE_NAME is
 '押金类型名称';
 
 comment on column DEPOSIT_TYPE.DEPOSIT_TYPE_CLASS is
-'押金类型分类{{约束：Y=业务类；D=代办类；com.ljl.section1_6.B 代理商业务保证金；  F 代理商风险保证金；Z 代理商装修保证金；com.ljl.section1_6.C 代理商押金}}';
+'押金类型分类{{约束：Y=业务类；D=代办类；ljl.section1_6.B 代理商业务保证金；  F 代理商风险保证金；Z 代理商装修保证金；ljl.section1_6.C 代理商押金}}';
 
 comment on column DEPOSIT_TYPE.STATUS_CD is
 '普通记录状态';
@@ -20456,7 +20456,7 @@ comment on column MKT_RES_CARD_INST.FUN_TYPE is
 '记录UIM卡功能类型：2FF 标准卡,3FF 小卡,远程写卡,空中写卡,无线公话卡,远程支付卡,M2M 卡,13.56RFID 卡（带天线）,13.56RFID 卡（不带天线,2.4G RFID 卡,机卡一体机数据,测试卡,省新产品等等；LOB。20150428。';
 
 comment on column MKT_RES_CARD_INST.FUN_SUB_TYPE is
-'记录UIM卡功能小类：如标准卡分EVDO OTA 卡,EVDO 卡,com.ljl.section1_6.C-G 双模卡,com.ljl.section1_6.C -G OTA 双模卡；RFID卡分翼机通、公交卡、银行卡；等等；LOB。20150428。';
+'记录UIM卡功能小类：如标准卡分EVDO OTA 卡,EVDO 卡,ljl.section1_6.C-G 双模卡,ljl.section1_6.C -G OTA 双模卡；RFID卡分翼机通、公交卡、银行卡；等等；LOB。20150428。';
 
 comment on column MKT_RES_CARD_INST.CARD_STATUS_CD is
 '记录UIM卡信息制卡的状态：已制卡，未制卡，已写卡；LOB。20150421。';
@@ -38673,7 +38673,7 @@ comment on table PLCA_OPERATOR is
 14(<)：双目运算，返回bool类型。支持整型和浮点之间的比较，支持日期类型(8BF)之间的比较
 15(>=)：双目运算，返回bool类型。支持整型和浮点之间的比较，支持日期类型(8BF)之间的比较
 16(<=)：双目运算，返回bool类型。支持整型和浮点之间的比较，支持日期类型(8BF)之间的比较
-17(between): 三目运算，返回bool类型，com.ljl.section1_6.A between [com.ljl.section1_6.B, com.ljl.section1_6.C)，左闭右开。支持整型和浮点之间的比较
+17(between): 三目运算，返回bool类型，ljl.section1_6.A between [ljl.section1_6.B, ljl.section1_6.C)，左闭右开。支持整型和浮点之间的比较
 18(in): 双目运算，返回bool类型。支持左值为8BE（日期与时间）右值为时段的比较。支持左值为普通参考值右值为集合之间的比较，二者的数值类型须一致，可以为整型、字符串。
 19(not in): 双目运算，返回bool类型。支持左值为8BE（日期与时间）右值为时段的比较。支持左值为普通参考值右值为集合之间的比较，二者的数值类型须一致，可以为整型、字符串。
 20(date): 单目运算，返回日期类型(8BF)，输入日期与时间类型(8BE)
@@ -39747,7 +39747,7 @@ comment on column PRICING_PLAN_REL.Z_PRICING_PLAN_ID is
 
 comment on column PRICING_PLAN_REL.REL_TYPE is
 '1-构成   2-互斥
-当为构成关系时，A端为定价包，Z端为定价计划。 当为互斥关系时，com.ljl.section1_6.A,Z端均为定价计划';
+当为构成关系时，A端为定价包，Z端为定价计划。 当为互斥关系时，ljl.section1_6.A,Z端均为定价计划';
 
 comment on column PRICING_PLAN_REL.STATUS_CD is
 '状态';
@@ -49833,7 +49833,7 @@ comment on column THIRD_PARTY_CHN_INFO.THIRD_PARTY_CHN_TYPE_CD is
 '合作营业厅、专营店、代理点、合作伙伴等。';
 
 comment on column THIRD_PARTY_CHN_INFO.THIRD_PARTY_CHN_LEVEL_CD is
-'AAA、AA、com.ljl.section1_6.A、一级、二级、三级。';
+'AAA、AA、ljl.section1_6.A、一级、二级、三级。';
 
 comment on column THIRD_PARTY_CHN_INFO.OWNERSHIP_TYPE_CD is
 '所有制类型编码。';

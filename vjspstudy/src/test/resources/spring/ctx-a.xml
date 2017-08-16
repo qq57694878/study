@@ -3,6 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <beans>
-        <bean id="A" class="com.ljl.section1_6.A"></bean>
+        <bean id="A" class="ljl.section1_6.A"></bean>
     </beans>
 </beans>

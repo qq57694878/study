@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
-<repository name='file:/com.ljl.section1_6.C:/MyBatis/generator/eclipse/UpdateSite/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+<repository name='file:/ljl.section1_6.C:/MyBatis/generator/eclipse/UpdateSite/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.timestamp' value='1342466522934'/>
     <property name='p2.compressed' value='false'/>

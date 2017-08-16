@@ -47,14 +47,14 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
+    <table tableName="PKFields" alias="ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
       <columnOverride column="stringBoolean" javaType="boolean" typeHandler="mbg.test.ib2j5.common.StringBooleanTypeHandler"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="com.ljl.section1_6.A">
+    <table tableName="awful table" alias="ljl.section1_6.A">
       <property name="useColumnIndexes" value="true"/>
       <generatedKey column="CuStOmEr iD" sqlStatement="HSQLDB" identity="true" />
       <columnOverride column="first name" property="firstFirstName" />
@@ -93,13 +93,13 @@
 
     <table tableName="FieldsOnly" domainObjectName="subpackage.Fieldsonly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
+    <table tableName="PKFields" alias="ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="com.ljl.section1_6.A">
+    <table tableName="awful table" alias="ljl.section1_6.A">
       <property name="useColumnIndexes" value="true"/>
       <generatedKey column="CuStOmEr iD" sqlStatement="HSQLDB" identity="true" />
       <columnOverride column="first name" property="firstFirstName" />
@@ -139,13 +139,13 @@
 
     <table tableName="FieldsOnly" />
     <table tableName="PKOnly" />
-    <table tableName="PKFields" alias="com.ljl.section1_6.B" >
+    <table tableName="PKFields" alias="ljl.section1_6.B" >
       <columnOverride column="wierd$Field" delimitedColumnName="true"/>
     </table>
     <table tableName="PKBlobs" />
     <table tableName="PKFieldsBlobs" />
     <table tableName="FieldsBlobs" />
-    <table tableName="awful table" alias="com.ljl.section1_6.A">
+    <table tableName="awful table" alias="ljl.section1_6.A">
       <property name="useColumnIndexes" value="true"/>
       <generatedKey column="CuStOmEr iD" sqlStatement="HSQLDB" identity="true" />
       <columnOverride column="first name" property="firstFirstName" />
@@ -194,7 +194,7 @@
 
     <table tableName="BlobsOnly" /> <!-- should generate a warning -->
     <table tableName="NonExistantTable" /> <!-- should generate a warning -->
-    <table tableName="PKFields" domainObjectName="MyObject" alias="com.ljl.section1_6.A" >
+    <table tableName="PKFields" domainObjectName="MyObject" alias="ljl.section1_6.A" >
       <ignoreColumn column="fred" /> <!-- should generate a warning -->
       <ignoreColumn column="decimal30Field" />
       <columnOverride column="datefield" property="startDate"/>

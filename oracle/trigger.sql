@@ -71,8 +71,8 @@ FOR EACH ROW
       WHEN UPDATING THEN
       V_OPER := 'UPDATING';
       SELECT PART1||PART2 INTO V_SQL FROM
-        (SELECT 'UPDATE   '||V_TABLE_NAME||' SET '|| WM_CONCAT(T1.COLUMN_NAME||'=:NEW.'||T1.COLUMN_NAME) as PART1  FROM USER_TAB_COLUMNS T1 WHERE T1.TABLE_NAME=V_TABLE_NAME) com.ljl.section1_6.A,
-        (select ' where '||replace(wm_concat(cu.column_name||'=:NEW.'||cu.column_name),',',' and ')||'' AS PART2 from user_cons_columns cu, user_constraints au where cu.constraint_name = au.constraint_name and au.constraint_type = 'P' and au.table_name = V_TABLE_NAME)com.ljl.section1_6.B;
+        (SELECT 'UPDATE   '||V_TABLE_NAME||' SET '|| WM_CONCAT(T1.COLUMN_NAME||'=:NEW.'||T1.COLUMN_NAME) as PART1  FROM USER_TAB_COLUMNS T1 WHERE T1.TABLE_NAME=V_TABLE_NAME) ljl.section1_6.A,
+        (select ' where '||replace(wm_concat(cu.column_name||'=:NEW.'||cu.column_name),',',' and ')||'' AS PART2 from user_cons_columns cu, user_constraints au where cu.constraint_name = au.constraint_name and au.constraint_type = 'P' and au.table_name = V_TABLE_NAME)ljl.section1_6.B;
 
       WHEN DELETING THEN
       V_OPER := 'DELETING';
@@ -88,12 +88,12 @@ FOR EACH ROW
 
   END;
 
-SELECT T1.COLUMN_NAME ,CASE WHEN EXISTS(SELECT 1 FROM   user_cons_columns com.ljl.section1_6.A, user_constraints com.ljl.section1_6.B WHERE com.ljl.section1_6.A.constraint_name = com.ljl.section1_6.B.constraint_name  AND com.ljl.section1_6.B.constraint_type='P' AND com.ljl.section1_6.A.column_name=T1.COLUMN_NAME AND com.ljl.section1_6.A.table_name=T1.TABLE_NAME) THEN 1 ELSE 0 END PK_BJ
+SELECT T1.COLUMN_NAME ,CASE WHEN EXISTS(SELECT 1 FROM   user_cons_columns ljl.section1_6.A, user_constraints ljl.section1_6.B WHERE ljl.section1_6.A.constraint_name = ljl.section1_6.B.constraint_name  AND ljl.section1_6.B.constraint_type='P' AND ljl.section1_6.A.column_name=T1.COLUMN_NAME AND ljl.section1_6.A.table_name=T1.TABLE_NAME) THEN 1 ELSE 0 END PK_BJ
 FROM USER_TAB_COLUMNS T1
 WHERE T1.TABLE_NAME='WEBORDER_DETAIL' ORDER BY T1.COLUMN_ID
 
 SELECT T1.COLUMN_NAME,DECODE(NVL(T2.column_name,'0'),'0',0,1) PK_BJ  FROM USER_TAB_COLUMNS T1
-  LEFT JOIN (SELECT com.ljl.section1_6.A.column_name,com.ljl.section1_6.A.table_name FROM  user_cons_columns com.ljl.section1_6.A, user_constraints com.ljl.section1_6.B WHERE com.ljl.section1_6.A.constraint_name = com.ljl.section1_6.B.constraint_name  AND com.ljl.section1_6.B.constraint_type='P'
+  LEFT JOIN (SELECT ljl.section1_6.A.column_name,ljl.section1_6.A.table_name FROM  user_cons_columns ljl.section1_6.A, user_constraints ljl.section1_6.B WHERE ljl.section1_6.A.constraint_name = ljl.section1_6.B.constraint_name  AND ljl.section1_6.B.constraint_type='P'
             ) T2
     ON T1.TABLE_NAME= T2.TABLE_NAME AND T1.COLUMN_NAME = T2.COLUMN_NAME
 WHERE T1.TABLE_NAME='WEBORDER_DETAIL' ORDER BY T1.COLUMN_ID ;

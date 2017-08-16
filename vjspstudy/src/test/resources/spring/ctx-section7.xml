@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <beans default-init-method="init" default-destroy-method="destroy">
-      <bean id="InitBeanXml" class="com.ljl.section7.InitBeanXml" init-method="init" destroy-method="destroy"></bean>
+      <bean id="InitBeanXml" class="ljl.section7.InitBeanXml" init-method="init" destroy-method="destroy"></bean>
     </beans>
 
 </beans>

@@ -24,7 +24,7 @@
   <packaging>war</packaging>
 
   <name>vjspstudy</name>
-  <groupId>com.ljl</groupId>
+  <groupId>ljl</groupId>
   <artifactId>vjspstudy</artifactId>
   <version>1.0</version>
 

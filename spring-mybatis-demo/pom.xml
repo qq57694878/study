@@ -6,7 +6,7 @@
     <packaging>war</packaging>
 
     <name>spring-mybatis-demo</name>
-    <groupId>com.ljl</groupId>
+    <groupId>ljl</groupId>
     <artifactId>spring-mybatis-demo</artifactId>
     <version>1.0</version>
 
