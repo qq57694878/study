@@ -1,5 +1,7 @@
 package ljl.tem;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,6 +12,7 @@ public class Main1 {
     public static void main(String[] args) {
         System.out.println(isNum("111"));
         System.out.println(isNum("8880.1"));
+        Map m = new HashMap();
     }
     public static boolean isNum(String str){
         if(str!=null&&str.length()>0){
