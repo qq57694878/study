@@ -92,8 +92,6 @@ public class Sort {
             }else{
                 temp[k]= data[j++];
             }
-
-
         }
         System.arraycopy(temp,low,data,low,len);
     }

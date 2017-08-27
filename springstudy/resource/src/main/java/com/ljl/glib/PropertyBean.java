@@ -1,4 +1,4 @@
-package com.ljl;
+package com.ljl.glib;
 
 public class PropertyBean {
     private String key;  

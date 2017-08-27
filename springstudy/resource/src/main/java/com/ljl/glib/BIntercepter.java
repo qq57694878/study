@@ -1,4 +1,4 @@
-package com.ljl;
+package com.ljl.glib;
 
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;

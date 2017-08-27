@@ -7,6 +7,7 @@ DECLARE
 BEGIN
   n := ora_sql_txt(sql_text);
 
+
   FOR i IN 1..n LOOP
     v_stmt := v_stmt || sql_text(i);
   END LOOP;

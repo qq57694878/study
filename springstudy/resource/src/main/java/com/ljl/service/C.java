@@ -10,4 +10,8 @@ public class C {
     public void sayHello(){
         System.out.println("c hello");
     }
+    public String sayHello1(){
+        System.out.println("c hello");
+        return "sayHello";
+    }
 }

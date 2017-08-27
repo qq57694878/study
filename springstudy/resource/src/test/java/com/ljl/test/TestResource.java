@@ -1,13 +1,9 @@
 package com.ljl.test;
 
-import com.ljl.B;
 import com.ljl.dao.TaDao;
-import com.ljl.service.A;
-import com.ljl.service.C;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.Resource;
 
 /**
  * Created by Administrator on 2017/8/15/015.

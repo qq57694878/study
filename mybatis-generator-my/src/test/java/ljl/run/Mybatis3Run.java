@@ -26,6 +26,11 @@ public class Mybatis3Run {
     public  void generateJavaFilesHgc35() throws Exception {
         generateJavaFiles("/generator_config_hgc_172.17.17.35.xml");
     }
+    @Test
+    public  void generateJavaFilesLocalOracle() throws Exception {
+        generateJavaFiles("/localhostoracle.xml");
+    }
+
 
     private void generateJavaFiles(String configFile) throws Exception {
         List<String> warnings = new ArrayList<String>();
