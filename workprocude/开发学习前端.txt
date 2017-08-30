@@ -1,0 +1,5 @@
+			alertMessage("删除成功");
+			pgs.searchConditionPersist(this,url); 新增和修改页面的跳转调用。
+			pgs.searchConditionShow(callback); 在查询列表初始化的时候条用。
+				pageSetUp(); 页面初始化
+					pgs.filterSearchForm(this);		重新加载表格数据
