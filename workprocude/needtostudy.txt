@@ -3,3 +3,8 @@ bootstrapValidator
 url # 的作用
 
 jquery datatables :   https://www.datatables.net/download/index
+
+生成验证码图片：jcaptcha
+
+https://www.juhe.cn/docs 发送短信
+http://v.juhe.cn/sms/send
