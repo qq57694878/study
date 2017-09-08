@@ -1,5 +1,66 @@
 			alertMessage("删除成功");
 			pgs.searchConditionPersist(this,url); 新增和修改页面的跳转调用。
-			pgs.searchConditionShow(callback); 在查询列表初始化的时候条用。
+			pgs.searchConditionShow(callback); 在查询列表初始化的时候调用。
 				pageSetUp(); 页面初始化
 					pgs.filterSearchForm(this);		重新加载表格数据
+					 JSON.parse()和JSON.stringify()；
+
+日期：
+<div class="cg-form-group ">
+								<label class="cg_label">入库时间：</label>
+								<div class="col-md-8 demo input-group cg_select">
+									<input type="text" name="startDate" id="startDate"
+										placeholder="开始时间" readonly class="form-control   input-xs"
+										data-dateformat="yy-mm-dd" autocomplete="off">
+									<span class="input-group-addon">
+										<i class="fa fa-times" onclick="clearInputVal(this);pgs.clearDate('startDate','endDate');"></i>
+									</span>
+									<span class="input-group-addon">
+										<i class="fa fa-calendar"></i>
+									</span>
+								</div>
+							</div>
+							<div class=" cg-form-group ">
+								<label class="cg_label text-center ">至</label>
+								<div class="col-md-8 demo input-group cg_select">
+									<input type="text" name="endDate" id="endDate"
+										placeholder="结束时间" readonly class="form-control input-xs"
+										data-dateformat="yy-mm-dd" autocomplete="off">
+									<span class="input-group-addon">
+										<i class="fa fa-times" onclick="clearInputVal(this);pgs.clearDate('startDate','endDate');"></i>
+									</span>
+									<span class="input-group-addon">
+										<i class="fa fa-calendar"></i>
+									</span>
+								</div>
+							</div>
+//初始化双日期控件
+pgs.doubleDateInit=function (beginDate,endDate){
+	 $('#'+beginDate).datepicker({
+			maxDate : new Date(),
+            dateFormat : 'yy-mm-dd',
+            prevText : '<i class="fa fa-chevron-left"></i>',
+            nextText : '<i class="fa fa-chevron-right"></i>',
+            onSelect : function(selectedDate) {
+                $('#'+endDate).datepicker('option', 'minDate', selectedDate);
+            }
+        });
+	 $('#'+endDate).datepicker({
+	        maxDate : new Date(),
+	        dateFormat : 'yy-mm-dd',
+	        prevText : '<i class="fa fa-chevron-left"></i>',
+            nextText : '<i class="fa fa-chevron-right"></i>',
+            onSelect : function(selectedDate) {
+                $('#'+beginDate).datepicker('option', 'maxDate', selectedDate);
+            }
+	     });
+ }
+//初始化单日期控件
+pgs.singleDateInit=function (singleDate){
+	 $('#'+singleDate).datepicker({
+			maxDate : new Date(),
+            dateFormat : 'yy-mm-dd',
+            prevText : '<i class="fa fa-chevron-left"></i>',
+            nextText : '<i class="fa fa-chevron-right"></i>',
+        });
+ }

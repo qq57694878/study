@@ -1,0 +1,86 @@
+select truncate(1.23456,4);
+select round(1.23456,4);
+select round(1.53456);
+select floor(1.53456);
+SELECT TRIM('@' FROM '@@abc@@');
+SELECT REPEAT('ab',3); -- ababab
+
+SELECT REPLACE('abc','a','x');
+select SUBSTRING("123456",1,2); -- 12
+-- 从字符串s中获取s1的开始位置
+
+SELECT INSTR('abc','b'); -- 2
+
+
+select CURDATE(),CURRENT_DATE();
+select CURDATE(),CURRENT_DATE(),CURTIME(),CURRENT_TIME,NOW(),CURRENT_TIMESTAMP(),LOCALTIME(),SYSDATE(),LOCALTIMESTAMP(),UNIX_TIMESTAMP(),FROM_UNIXTIME(1320981071);
+
+SELECT EXTRACT(MINUTE FROM '2011-11-11 11:11:11');
+
+/*
+MICROSECOND
+SECOND
+MINUTE
+HOUR
+DAY
+WEEK
+MONTH
+QUARTER
+YEAR
+SECOND_MICROSECOND
+MINUTE_MICROSECOND
+MINUTE_SECOND
+HOUR_MICROSECOND
+HOUR_SECOND
+HOUR_MINUTE
+DAY_MICROSECOND
+DAY_SECOND
+DAY_MINUTE
+DAY_HOUR
+YEAR_MONTH
+*/
+SELECT ADDDATE('2011-11-11 11:11:11',1),ADDDATE('2011-11-11 11:11:11', INTERVAL 5 YEAR),SUBDATE('2011-11-11 11:11:11', INTERVAL 5 YEAR);
+
+SELECT ADDTIME('2011-11-11 11:11:11', 5),SUBTIME('2011-11-11 11:11:11', 5);
+SELECT IF(1 > 0,'正确','错误')    ;
+SELECT IFNULL('','正确','错误');
+SELECT IFNULL(null,'正确');
+SELECT CASE 1 WHEN 1 THEN '我是1' WHEN 2 THEN '我是2' ELSE '你是谁' END;
+SELECT CASE WHEN 1 > 0 THEN '1 > 0' WHEN 2 > 0 THEN '2 > 0' ELSE '3 > 0' END;
+
+SELECT md5('123456');
+SELECT ENCODE('123','xxoo'), DECODE(';vx','xxoo');
+
+-- FORMAT(x,n)函数可以将数字x进行格式化，将x保留到小数点后n位。
+
+SELECT FORMAT(3.1415926,3);
+
+SELECT ASCII('a'); -- 返回字符串s的第一个字符的ASCII码；
+select BIN(10);-- 返回x的二进制编码；
+select HEX(10);-- 返回x的十六进制编码；
+select OCT(10);--  返回x的八进制编码；
+select CONV(11,10,2);--  返回f1进制数变成f2进制数；
+-- 3IP地址与数字相互转换的函数
+
+SELECT INET_ATON('192.168.0.1');
+
+SELECT ASCII('a'); -- 返回字符串s的第一个字符的ASCII码；
+select BIN(10);-- 返回x的二进制编码；
+select HEX(10);-- 返回x的十六进制编码；
+select OCT(10);--  返回x的八进制编码；
+select CONV(11,10,2);--  返回f1进制数变成f2进制数；
+-- 3IP地址与数字相互转换的函数
+
+SELECT INET_ATON('192.168.0.1');
+
+SELECT INET_NTOA(3232235521);
+
+
+SELECT CAST('2017-10-10 10:10:10' AS DATETIME);
+
+SELECT CONVERT('2017-10-10 10:10:10', TIME);
+-- 两个函数只对BINARY、CHAR、DATE、DATETIME、TIME、SIGNED INTEGER、UNSIGNED INTEGER。
+
+select ELT(1, 'ej', 'Heja', 'hej', 'foo');
+select FIELD('ej', 'ej', 'Heja', 'hej', 'foo');
+

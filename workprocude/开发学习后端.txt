@@ -1,0 +1,321 @@
+	获得配置properties：		String loginUrl = PropertiesUtil.getValue("shiro.logout.url");
+
+	如果想把数据传到前台，jstl解析：
+		public String updateDictById( String id,Model model )  {
+    		model.addAttribute("idDict", id);
+    		return "sysmanage/sysmanage_dict_update";
+    	}
+    	前段：	<input type="hidden" id="idDict" name="idDict" value="${idDict}" >
+
+    	model用法：
+    	<div style="display:none" id="importSpStoreDialog" title="批量导入备件库">
+        	<FORM class="smart-form" METHOD=POST id="importSpStoreForm" enctype="multipart/form-data">
+        		<fieldset>
+        			<section>
+        				<label for="file" class="input input-file col-md-12">
+        					<div class="button"><input id="spStoreExcelFile" type="file" name="spStoreExcelFile" onchange="this.parentNode.nextSibling.value = this.value">选择文件</div><input type="text" placeholder="请选择文件" readonly="readonly">
+        				</label>
+        			</section>
+        		</fieldset>
+          	</FORM>
+        </div>
+
+        $('#importSpStoreDialog').dialog({
+        			autoOpen : false,
+        			width : 400,
+        			resizable : false,
+        			modal : true,
+        			title : "<div class='widget-header'><h4>批量导入备件库</h4></div>",
+        			buttons : [ {
+        				html : confirm,
+        				"class" : "btn btn-primary",
+        				click : function() {
+
+        					var spStoreExcelFile = $("#spStoreExcelFile").val();
+
+        					// 检查是否选择文件
+        					if (spStoreExcelFile == null || spStoreExcelFile == "") {
+        						alertError("请选择要导入的Excel文件！");
+        						return;
+        					}
+
+        					// 检查文件类型
+        					var pos = spStoreExcelFile.lastIndexOf(".");
+        					var spStoreExcelFileName = spStoreExcelFile.substring(pos+1);
+        					if (spStoreExcelFileName != "xlsx" && spStoreExcelFileName != "xls") {
+        						alertError("文件类型不正确,请选择Exce文件导入商品！");
+        						return;
+        					}
+
+        					// 批量导入备件库
+        					importSpStore();
+        					$(this).dialog("close");
+        				}
+        			}, {
+        				html : cancel,
+        				"class" : "btn btn-default",
+        				click : function() {
+        					$(this).dialog("close");
+        				}
+        			} ]
+        		});
+        		删除带关闭按钮的弹出框
+        		<div id="delete_dict" title="删除提示" style="display: none">
+                		<p>删除后，将不可恢复，请谨慎操作。</p>
+                </div>
+
+
+                // 删除字典信息
+                	 function deleteDict(id,updateDate) {
+                		 var data={"id":id,"updateDate":updateDate};
+                 		$('#delete_dict').dialog({
+                 			autoOpen : false,
+                	        width : 450,
+                	        resizable : false,
+                	        modal : true,
+                	        title : "<div class='widget-header'><h4><i class='fa'></i>确认删除</h4></div><i class='fa fa-times-circle-o tag-close' onClick='closeDelect()'></i>",
+                			buttons : [ {
+                				html : confirm,
+                				"class" : "btn btn-primary",
+                				click : function() {
+                					$.ajax({
+                						url : "${pageContext.request.contextPath}/dict/delectDict.do",
+                						type : "post",
+                						dataType : "json",
+                						data :JSON.stringify(data),
+                						contentType : 'application/json;charset=utf-8', //设置请求头信息
+                						success : function(data, textStatus) {
+                							if (data.code == '00000') {
+                								alertMessage("删除成功");
+                								findDictTypeList();
+                								pgs.filterSearchForm();
+                							} else {
+                								alertErrorCallback(data.msg, pgs.filterSearchForm);
+                							}
+
+                						},
+                						error : function(jqXHR, textStatus, errorThrown) {
+                						}
+                					});
+                					$(this).dialog("close");
+                				}
+                			}, {
+                				html : cancel,
+                				"class" : "btn btn-default",
+                				click : function() {
+
+                					$(this).dialog("close");
+                				}
+                			} ]
+                		});
+
+                		$('#delete_dict').dialog('open');
+                	}
+
+
+
+
+
+
+
+
+
+文件上传：//
+     	  		function importSpareFiles() {
+     	  			debugger;
+     	  		    var formData = new FormData($("#importSpareFilesForm")[0]);
+     	  		    $.ajax({
+     	  		        url: "${pageContext.request.contextPath}/basebusiness/importSpareFilesExcelFile.do",
+     	  		        type: 'POST',
+     	  		        data: formData,
+     	  		        async: false,
+     	  		        cache: false,
+     	  		        contentType: false,
+     	  		        processData: false,
+     	  		        success: function (returndata) {
+     	  		        	var parsedJson = jQuery.parseJSON(returndata);
+     	  		        	if (parsedJson.code != '00000') {
+     	  		        		alertError(parsedJson.msg);
+     	  		        	} else {
+     	  		        		pgs.filterSearchForm();
+     	  		        		alertMessage(parsedJson.msg);
+     	  		        	}
+     	  		        },
+     	  		        error: function (parsedJson) {
+     	  		        	alertError("设备导入失败");
+     	  		        }
+     	  			});
+     	  		}
+
+     	  		/**
+                		 * 从Excel文件中批量导入备件
+                		 * @param request
+                		 * @return
+                		 */
+                		@ResponseBody
+                		@RequestMapping(value = "importSpareFilesExcelFile", method={RequestMethod.POST,RequestMethod.GET})
+                		public Object importSpareFilesExcelFile(HttpServletRequest request, HttpServletResponse response) {
+                			logger.debug("从Excel文件中批量导入备件信息");
+                			MultipartHttpServletRequest rq = (MultipartHttpServletRequest) request;
+                			MultipartFile spareFilesExcelFile = rq.getFile("initSpareExcelFile");
+                			try {
+                				InputStream spareFilesExcelFileIS = spareFilesExcelFile.getInputStream();
+                				List<SpSpare> spSpareList = new ArrayList<SpSpare>();
+                				String errMsg =	readSpareFilesListFromXls(spareFilesExcelFileIS, spSpareList);
+
+                				// 文件验证有问题，退出
+                				if (StringUtils.isNotEmpty(errMsg)) {
+                					ResultInfo resultInfo = new ResultInfo();
+                					resultInfo.put("code", "60001");
+                					resultInfo.put("msg", errMsg);
+                					return new JSONObject(resultInfo.getInfo());
+                				}
+
+                				// 批量导入
+                				ResultInfo resultJson = new ResultInfo();
+                				Date tempDate = new Date();
+                				for(SpSpare sps:spSpareList){
+                					String id = UUID.randomUUID().toString();
+                					String idStr = id.replaceAll("-", "");
+                					sps.setSpareId(idStr);
+                					sps.setCreateDate(tempDate);
+                					sps.setUpdateDate(tempDate);
+                					sps.setDelFlag("0");
+                				}
+                				int updateCount = 0;
+                				try {
+                						updateCount = isSpareFilesService.addSpareFilesList(spSpareList);//全量增加
+                				} catch (Exception e) {
+                						throw new DatabaseUpdateException();
+                				}
+                				if (updateCount == 0) {
+                					throw new DataIsModifiedException();
+                				}
+                				JSONObject jsonTemp = new JSONObject(resultJson.getInfo());
+                				return jsonTemp;
+
+                			} catch (Exception e) {
+                				e.printStackTrace();
+                				ResultInfo resultInfo = new ResultInfo();
+                				resultInfo.put("code", "60001");
+                				resultInfo.put("msg", "备件信息导入处理出错，请联系系统管理员！");
+                				return new JSONObject(resultInfo.getInfo());
+                			}
+                		}
+
+
+
+
+
+
+
+
+
+
+
+解析xml：/**
+      		 * 从Excel文件中读取设备
+      		 * @param is
+      		 * @return
+      		 * @throws IOException
+      		 */
+      		private String readSpareFilesListFromXls(InputStream spareFilesExcelFileIS, List<SpSpare> spSpareList) throws IOException{
+
+
+      			// 读取第一个sheet的内容
+      			XSSFWorkbook hssfWorkbook = new XSSFWorkbook(spareFilesExcelFileIS);
+      			XSSFSheet hssfSheet = hssfWorkbook.getSheetAt(0);
+
+      			List <String> mCodeList =new ArrayList<>();
+      			// 循环行Row
+      			for (int rowNum = 1; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
+      				XSSFRow hssfRow = hssfSheet.getRow(rowNum);
+
+      				String errMsg = "Excel文件中第"+(rowNum+1)+"行数据的";
+
+      				XSSFCell spareCodeCell = hssfRow.getCell(0);
+      				XSSFCell spareNameCell = hssfRow.getCell(1);
+      				XSSFCell sparePriceCell = hssfRow.getCell(2);
+      				XSSFCell remarkCell = hssfRow.getCell(3);
+      				XSSFCell materialBarcodeCell = hssfRow.getCell(4);
+      				XSSFCell materialMnecodeCell = hssfRow.getCell(5);
+      				XSSFCell materialShortnameCell = hssfRow.getCell(6);
+      				XSSFCell materialSpecCell = hssfRow.getCell(7);
+      				XSSFCell materialTypeCell = hssfRow.getCell(8);
+      				XSSFCell unitHeightCell = hssfRow.getCell(9);
+      				XSSFCell unitLengthCell = hssfRow.getCell(10);
+      				XSSFCell unitWidthCell = hssfRow.getCell(11);
+      				XSSFCell unitVolumeCell = hssfRow.getCell(12);
+      				XSSFCell unitWeightCell = hssfRow.getCell(13);
+      				XSSFCell versionCell = hssfRow.getCell(14);
+
+      				if ((spareCodeCell == null || StringUtils.isEmpty(getValueFromCell(spareCodeCell))) &&
+      					(spareNameCell == null || StringUtils.isEmpty(getValueFromCell(spareNameCell))) &&
+      					(sparePriceCell == null || StringUtils.isEmpty(getValueFromCell(sparePriceCell))) &&
+      					(remarkCell == null || StringUtils.isEmpty(getValueFromCell(remarkCell))) &&
+      					(materialBarcodeCell == null || StringUtils.isEmpty(getValueFromCell(materialBarcodeCell))) &&
+      					(materialMnecodeCell == null || StringUtils.isEmpty(getValueFromCell(materialMnecodeCell))) &&
+      					(materialShortnameCell == null || StringUtils.isEmpty(getValueFromCell(materialShortnameCell))) &&
+      					(materialSpecCell == null || StringUtils.isEmpty(getValueFromCell(materialSpecCell))) &&
+      					(materialTypeCell == null || StringUtils.isEmpty(getValueFromCell(materialTypeCell))) &&
+      					(unitHeightCell == null || StringUtils.isEmpty(getValueFromCell(unitHeightCell))) &&
+      					(unitLengthCell == null || StringUtils.isEmpty(getValueFromCell(unitLengthCell))) &&
+      					(unitWidthCell == null || StringUtils.isEmpty(getValueFromCell(unitWidthCell))) &&
+      					(unitVolumeCell == null || StringUtils.isEmpty(getValueFromCell(unitVolumeCell))) &&
+      					(unitWeightCell == null || StringUtils.isEmpty(getValueFromCell(unitWeightCell))) &&
+      					(versionCell == null || StringUtils.isEmpty(getValueFromCell(versionCell)))) {
+      					break;
+      				}
+      				SpSpare sps =new SpSpare();
+      				// 设备编号验证
+      				if (spareCodeCell == null) {
+      					return errMsg+"备件编号为空!";
+      				}
+      				String spareCode = getValueFromCell(spareCodeCell);
+      				if (StringUtils.isEmpty(spareCode)) {
+      					return errMsg+"备件编号为空!";
+      				}
+      				if (spareCode.length() > 30) {
+      					return errMsg+"设备编号位数超出30位!";
+      				}
+      				for(String str:mCodeList){
+      					if(spareCode.equals(str)){
+      						return errMsg+"设备编号位重复!";
+      					}
+      				}
+      				//设备名称验证
+      				if (spareNameCell == null) {
+      					return errMsg+"备件名称为空!";
+      				}
+      				String spareName = getValueFromCell(spareNameCell);
+      				if (StringUtils.isEmpty(spareName)) {
+      					return errMsg+"备件名称为空!";
+      				}
+      				mCodeList.add(spareCode);
+      				//拼接SpSpare实体
+      				sps.setSpareCode(spareCode);
+      				sps.setSpareName(spareName);
+      				sps.setSparePrice(new BigDecimal( getValueFromCell(sparePriceCell)));
+      				sps.setRemark(getValueFromCell(remarkCell));
+      				sps.setMaterialBarcode(getValueFromCell(materialBarcodeCell));
+      				sps.setMaterialMnecode(getValueFromCell(materialMnecodeCell));
+      				sps.setMaterialShortname(getValueFromCell(materialShortnameCell));
+      				sps.setMaterialSpec(getValueFromCell(materialSpecCell));
+      				sps.setMaterialType(getValueFromCell(materialTypeCell));
+      				sps.setUnitHeight(getValueFromCell(unitHeightCell));
+      				sps.setUnitLength(getValueFromCell(unitLengthCell));
+      				sps.setUnitWidth(getValueFromCell(unitWidthCell));
+      				if(!"".equals(getValueFromCell(unitVolumeCell))){
+      				sps.setUnitVolume(new BigDecimal(getValueFromCell(unitVolumeCell)));
+      				}
+      				if(!"".equals(getValueFromCell(unitWeightCell))){
+      				sps.setUnitWeight(new BigDecimal(getValueFromCell(unitWeightCell)));
+      				}
+      				if(!"".equals(getValueFromCell(versionCell))){
+      				sps.setVersion(Integer.parseInt(getValueFromCell(versionCell)));
+      				}
+      				spSpareList.add(sps);
+      			}
+
+      			return null;
+      		}
