@@ -1,0 +1,11 @@
+{
+  "scanDeviceObject": {
+    "mCode": "HLqf001001",
+    "mVersionCode": "qf001",
+    "cOrgName": "建设银行",
+    "mTypeName": "清分机",
+    "cOrgAddress": "辽宁省沈阳市和平区天津街23号"
+  },
+  "code": "00000",
+  "msg": "成功"
+}

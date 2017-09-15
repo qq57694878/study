@@ -1,0 +1,80 @@
+{
+  "mainMessage": {
+    "orderType": "4",
+    "orderTypeMessage": "走访",
+    "orderStatusMessage": "已完成",
+    "orderName": "建设银行走访计划",
+    "createDate": "2017-09-04",
+    "orderStatus": "23",
+    "orderId": "43a998c6810743ca80a5fa8ac92eabb5",
+    "planEnddate": "2017-09-10"
+  },
+  "finishDetailList": [
+    {
+      "cOrgName": "建设银行",
+      "machineMessage": [
+        {
+          "userName": "何福龙",
+          "machineList": [
+            {
+              "mCode": "HLkbj001001",
+              "orderDetailId": "a1d85ed2273d41618950e008918fd653",
+              "mVersionName": "kbj001",
+              "mVersionCode": "kbj001",
+              "mTypeName": "捆绑机"
+            }
+          ],
+          "mobile": "18842666137"
+        },
+        {
+          "userName": "张三",
+          "machineList": [
+            {
+              "mCode": "HLqf002001",
+              "orderDetailId": "a3e425e52ac741539109fee870730daf",
+              "mVersionName": "qf002",
+              "mVersionCode": "qf002",
+              "mTypeName": "清分机"
+            },
+            {
+              "mCode": "HLdsj001001",
+              "orderDetailId": "b97360ad4fb54f9c9cbe82fd2eb1a740",
+              "mVersionName": "dsj001",
+              "mVersionCode": "dsj001",
+              "mTypeName": "电视机"
+            }
+          ],
+          "mobile": "18040104191"
+        }
+      ],
+      "cOrgLinkMobile": "18040104191",
+      "cOrgAddress": "辽宁省沈阳市和平区天津街23号"
+    }
+  ],
+  "unFinishDetailList": [
+    {
+      "cOrgName": "建设银行",
+      "cOrgLinkMobile": "18040104191",
+      "machineList": [
+        {
+          "mCode": "HLqf001001",
+          "orderDetailId": "5fdb8407bbe742c28126fcf97ae778b6",
+          "mVersionName": "qf001",
+          "mVersionCode": "qf001",
+          "mTypeName": "清分机"
+        },
+        {
+          "mCode": "HLtkj001001",
+          "orderDetailId": "198ac2cb47cc4b59ab0c3e2d1aedf203",
+          "mVersionName": "tkj001",
+          "mVersionCode": "tkj001",
+          "mTypeName": "提款机"
+        }
+      ],
+      "cOrgAddress": "辽宁省沈阳市和平区天津街23号"
+    }
+  ],
+  "code": "00000",
+  "finishCount": 3,
+  "msg": "成功"
+}
