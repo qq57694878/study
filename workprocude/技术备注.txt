@@ -3,3 +3,6 @@ Emmet   ,zen coding
 REST Assured
 
 Swagger
+
+Ionic2 用来js开发app
+Cordova
