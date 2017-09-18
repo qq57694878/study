@@ -10,7 +10,7 @@ import org.junit.Before;
  */
 public class TestRestBase {
    // public final static String PRE_PATH="/cherry";
-      public final static String PRE_PATH="/assp-web-s";
+      public final static String PRE_PATH="/smart";
 
 
    @Before
