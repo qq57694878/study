@@ -18,9 +18,9 @@ public class TestDemoController extends TestRestBussinessBase {
     @Test
     public void testList() throws IOException {
         Map<String,Object> param = new HashMap<String,Object>();
-        param.put("name","test");
+        param.put("name","李");
         param.put("id","1");
-        Response r = RestAssured.given(this.spec).header("token",this.token).contentType(ContentType.URLENC).formParams(param)
+        Response r = RestAssured.given(this.spec).contentType(ContentType.JSON).body(objectMapper.writeValueAsString(param))
                 .post(""+PRE_PATH+"/demo/list.json");
         r.then().statusCode(200);
         r.prettyPrint();

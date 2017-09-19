@@ -14,7 +14,7 @@
 	<http security="none" pattern="/**/*.gif"/>
 	<http security="none" pattern="/**/*.png"/>
 	<http security="none" pattern="/auth/**" />
-	<http entry-point-ref="unauthorizedEntryPoint" use-expressions="false" create-session="stateless" >
+	<http pattern="/api/**"  entry-point-ref="unauthorizedEntryPoint" use-expressions="false" create-session="stateless" >
 		<csrf disabled="true"/>
 		<custom-filter before="FORM_LOGIN_FILTER" ref="jwtAuthenticationFilter"/>
 		<intercept-url pattern="/auth/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
