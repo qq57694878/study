@@ -27,9 +27,10 @@ public class DemoController {
         return new RestResult(page);
     }
 
-    @RequestMapping("/listfilter")
-    public RestResult list(@RequestBody Map<String,Object> demoRequest, @ModelAttribute PageRequest pageRequest){
-        List<PropertyFilter> propertyFilters = PropertyFilter.build(demoRequest);
+    @RequestMapping("/listFilter")
+    public RestResult listFilter(@RequestBody Map<String,Object> demoRequest){
+        PageRequest pageRequest = new PageRequest(Integer.parseInt(String.valueOf(demoRequest.get("page"))),Integer.parseInt(String.valueOf(demoRequest.get("size"))));
+        List<PropertyFilter> propertyFilters = PropertyFilter.buildFromMap(demoRequest);
         Page<Employee> page =  demoService.selectEmployeeListFilter(propertyFilters,pageRequest);
         return new RestResult(page);
     }

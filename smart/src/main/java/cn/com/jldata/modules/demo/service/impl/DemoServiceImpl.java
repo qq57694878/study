@@ -58,13 +58,7 @@ public class DemoServiceImpl implements DemoService {
     @Override
     public Page<Employee> selectEmployeeListFilter(List<PropertyFilter> propertyFilters, PageRequest pageRequest) {
         Sort sort = new Sort(Sort.Direction.ASC,"id");
-
-        Pageable pageable = new PageRequest(0,2,sort);
-        return demoDao.findAll(new Specification<Employee>() {
-            @Override
-            public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-               return JpaQueryUtil.getPredicate(root,criteriaBuilder,propertyFilters);
-            }
-        },pageable);
+        Pageable pageable = new PageRequest(pageRequest.getPageNumber(),pageRequest.getPageSize(),sort);
+        return demoDao.findAll(JpaQueryUtil.buildSpecification(propertyFilters),pageable);
     }
 }
