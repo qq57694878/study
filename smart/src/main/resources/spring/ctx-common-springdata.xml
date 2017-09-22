@@ -33,6 +33,7 @@
     </bean>
     <!--jpa管理工厂-->
     <!-- 实体管理器 -->
+    <!--
     <bean id="entityManagerFactory2" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSourceJPA" />
         <property name="packagesToScan" value="cn.com.jldata" />
@@ -59,6 +60,7 @@
             </map>
         </property>
     </bean>
+    -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <!--数据源-->
         <property name="dataSource" ref="dataSourceJPA"/>
@@ -100,6 +102,7 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!--配置spring data-->
-    <jpa:repositories base-package="cn.com.jldata" entity-manager-factory-ref="entityManagerFactory"/>
+
+    <jpa:repositories base-package="cn.com.jldata"  entity-manager-factory-ref="entityManagerFactory" factory-class="cn.com.jldata.core.jpa.BaseRepositoryFactoryBean"/>
 
 </beans>

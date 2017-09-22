@@ -15,6 +15,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -47,10 +48,18 @@ public class DemoServiceImpl implements DemoService {
         return demoDao.findAll(new Specification<Employee>() {
             @Override
             public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-/*
-                root.get("").get()
-                criteriaBuilder.between()*/
-                return null;
+
+                List<Predicate> predicates = new ArrayList<>();
+                if(demoRequest.getCrateTime()!=null){
+                predicates.add( criteriaBuilder.lessThan(root.get("crateDate"),demoRequest.getCrateTime()));
+                }
+                if(demoRequest.getId()!=null){
+                    predicates.add( criteriaBuilder.equal(root.get("id"),demoRequest.getId()));
+                }
+                if(demoRequest.getLastName()!=null){
+                    predicates.add( criteriaBuilder.like(root.get("lastName"),"%" + demoRequest.getLastName() + "%"));
+                }
+               return  criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }
         },pageable);
     }
@@ -59,6 +68,6 @@ public class DemoServiceImpl implements DemoService {
     public Page<Employee> selectEmployeeListFilter(List<PropertyFilter> propertyFilters, PageRequest pageRequest) {
         Sort sort = new Sort(Sort.Direction.ASC,"id");
         Pageable pageable = new PageRequest(pageRequest.getPageNumber(),pageRequest.getPageSize(),sort);
-        return demoDao.findAll(JpaQueryUtil.buildSpecification(propertyFilters),pageable);
+        return demoDao.findAll(propertyFilters,pageable);
     }
 }
