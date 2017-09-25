@@ -1,10 +1,9 @@
-package cn.com.jldata.core.filter;
+package cn.com.jldata.core.security.filter;
 
-import cn.com.jldata.core.service.JWTService;
+import cn.com.jldata.core.security.jwt.JWTService;
 import cn.com.jldata.core.util.Constants;
 import com.auth0.jwt.internal.org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

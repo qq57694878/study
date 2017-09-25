@@ -1,6 +1,6 @@
-package cn.com.jldata.core.service.impl;
+package cn.com.jldata.core.security.jwt.impl;
 
-import cn.com.jldata.core.service.JWTService;
+import cn.com.jldata.core.security.jwt.JWTService;
 import cn.com.jldata.core.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,5 @@
-package cn.com.jldata.core.service.impl;
+package cn.com.jldata.core.security.jwt.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

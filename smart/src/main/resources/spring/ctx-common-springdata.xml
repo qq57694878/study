@@ -105,4 +105,4 @@
 
     <jpa:repositories base-package="cn.com.jldata"  entity-manager-factory-ref="entityManagerFactory" factory-class="cn.com.jldata.core.jpa.BaseRepositoryFactoryBean"/>
 
-</beans>
+        </beans>
