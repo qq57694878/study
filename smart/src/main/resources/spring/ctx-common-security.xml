@@ -14,6 +14,7 @@
 	<http security="none" pattern="/**/*.gif"/>
 	<http security="none" pattern="/**/*.png"/>
 	<http security="none" pattern="/auth/**" />
+	<http security="none" pattern="/exclude/**" />
 	<http pattern="/api/**"  entry-point-ref="unauthorizedEntryPoint" use-expressions="false" create-session="stateless" >
 		<csrf disabled="true"/>
 		<custom-filter before="FORM_LOGIN_FILTER" ref="jwtAuthenticationFilter"/>
