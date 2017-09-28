@@ -36,6 +36,11 @@ public class Mybatis3Run {
         generateJavaFiles("/mysqlGenerator.xml");
     }
 
+    @Test
+    public  void generatorMysqlGeneratorTest() throws Exception {
+        generateJavaFiles("/mysqlGeneratortest.xml");
+    }
+
 
     private void generateJavaFiles(String configFile) throws Exception {
         List<String> warnings = new ArrayList<String>();
