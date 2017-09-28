@@ -1,0 +1,14 @@
+{
+  "orderId": "1111111111111",
+  "finishPlanList": [
+    {
+      "mCode": "设备编码",
+      "orderDetailRemark": "维修明细",
+      "orderDetailUrl": "图片1存储路径",
+      "orderDetailUrl1": "图片2存储路径",
+      "orderDetailUrl2": "图片3存储路径",
+      "orderDetailUrl3": "图片4存储路径",
+      "orderDetailUrl4": "图片5存储路径"
+    }
+  ]
+}

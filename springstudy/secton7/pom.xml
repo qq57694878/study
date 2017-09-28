@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <parent>
-        <groupId>ljl</groupId>
+        <groupId>com.ljl</groupId>
         <artifactId>springstudy</artifactId>
         <version>1.0</version>
         <relativePath>../pom.xml</relativePath>  <!--本例中此处是可选的-->
