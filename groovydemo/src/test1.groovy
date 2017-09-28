@@ -3,7 +3,7 @@ import groovy.io.FileType
 /**
  * Created by Administrator on 2017/5/26.
  */
-baseDir="E:\\ideaw1\\mystudy\\groovydemo";
+baseDir="E:\\ideaw1\\m\\mystudy\\groovydemo";
 new File(baseDir, 'haiku.txt').eachLine { line, nb ->
     println "Line $nb: $line"
 }

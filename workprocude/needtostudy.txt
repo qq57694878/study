@@ -8,5 +8,3 @@ jquery datatables :   https://www.datatables.net/download/index
 
 https://www.juhe.cn/docs 发送短信
 http://v.juhe.cn/sms/send
-
-http://summernote.org/ 富文本框
