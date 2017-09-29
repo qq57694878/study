@@ -3,10 +3,12 @@ package cn.com.jldata.solrdemo.vo;
 
 import cn.com.jldata.solrdemo.common.Constants;
 
+import java.io.Serializable;
+
 /**
  * api 返回结果
  */
-public class RestResult {
+public class RestResult implements Serializable {
 
     private int errcode;
 

@@ -1,6 +1,7 @@
 package cn.com.jldata.solrdemo.mapper;
 
 import cn.com.jldata.solrdemo.domain.Article;
+import com.github.pagehelper.Page;
 
 public interface ArticleMapper {
     /**
@@ -50,4 +51,10 @@ public interface ArticleMapper {
      * @mbg.generated Thu Sep 28 16:30:54 CST 2017
      */
     int updateByPrimaryKey(Article record);
+
+    /**
+     *
+     * @return
+     */
+    Page<Article> selectAll();
 }

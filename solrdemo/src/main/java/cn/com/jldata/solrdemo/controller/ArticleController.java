@@ -10,16 +10,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("article")
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
-    @RequestMapping("findPage")
-    public RestResult findPage(@RequestBody Article article, Page<Article>page){
-        Page<Article> list  = articleService.findPage(article,page);
-        return new RestResult(list);
+
+    @RequestMapping("findAll")
+    public RestResult findAll(Page<Article>page) throws Exception {
+        Page<Article> list  = articleService.findAll(page);
+        return new RestResult(list.toPageInfo());
+    }
+
+    @RequestMapping("reIndexAll")
+    public RestResult reIndexAll() throws Exception {
+        articleService.reIndexall();
+
+        return new RestResult();
+    }
+
+
+    @RequestMapping("search")
+    public RestResult search(@RequestBody Map<String,String> param) throws Exception {
+        int pageNum =Integer.parseInt(param.get("pageNum"));
+        int pageSize = Integer.parseInt(param.get("pageSize"));
+        String word =  param.get("word");
+        Page<Article> page =new Page<>(pageNum,pageSize);
+        Page<Article> list  = articleService.search(word,page);
+        return new RestResult(list.toPageInfo());
     }
 
     @RequestMapping("findOne")

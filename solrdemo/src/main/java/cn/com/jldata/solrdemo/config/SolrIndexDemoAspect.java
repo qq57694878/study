@@ -27,7 +27,31 @@ public class SolrIndexDemoAspect {
     public void afterInsertArticle(Article article) throws Throwable {
         System.out.println(article);
         SolrInputDocument solrInputDocument =new SolrInputDocument();
-        solrInputDocument.addField("id",article.getId());
+        solrInputDocument.addField("id",String.valueOf(article.getId()));
+        solrInputDocument.addField("title",article.getTitle());
+        solrInputDocument.addField("content",article.getContent());
+        solrInputDocument.addField("type",article.getType());
+        solrInputDocument.addField("createtime",article.getCreatetime());
+        solrClientDemo.add(solrInputDocument);
+        solrClientDemo.commit();
+    }
+
+    @Pointcut("execution(* cn.com.jldata.solrdemo.mapper.ArticleMapper.delte*(..)) && args(Integer)")//
+    public void deleteArticle() {}
+    @After("cn.com.jldata.solrdemo.config.SolrIndexDemoAspect.insertArticle() && args(id)")
+    public void afterdeleteArticle(Integer id) throws Throwable {
+        System.out.println(id);
+        solrClientDemo.deleteById(String.valueOf(id));
+        solrClientDemo.commit();
+    }
+
+    @Pointcut("execution(* cn.com.jldata.solrdemo.mapper.ArticleMapper.update*(..)) && args(cn.com.jldata.solrdemo.domain.Article)")//
+    public void updateArticle() {}
+    @After("cn.com.jldata.solrdemo.config.SolrIndexDemoAspect.updateArticle() && args(article)")
+    public void afterUpdateArticle(Article article) throws Throwable {
+        System.out.println(article);
+        SolrInputDocument solrInputDocument =new SolrInputDocument();
+        solrInputDocument.addField("id",String.valueOf(article.getId()));
         solrInputDocument.addField("title",article.getTitle());
         solrInputDocument.addField("content",article.getContent());
         solrInputDocument.addField("type",article.getType());
