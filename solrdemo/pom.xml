@@ -110,7 +110,30 @@
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-core</artifactId>
 			<version>7.0.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>metrics-jvm</artifactId>
+					<groupId>io.dropwizard.metrics</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>metrics-core</artifactId>
+					<groupId>io.dropwizard.metrics</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>metrics-graphite</artifactId>
+					<groupId>io.dropwizard.metrics</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>metrics-jetty9</artifactId>
+					<groupId>io.dropwizard.metrics</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>metrics-ganglia</artifactId>
+					<groupId>io.dropwizard.metrics</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
 		<!-- solr end-->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!--
  Licensed to the Apache Software Foundation (ASF) under one or more
  contributor license agreements.  See the NOTICE file distributed with
@@ -111,6 +111,18 @@
     -->
 
     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="title" type="text_ik" indexed="true" stored="true" multiValued="false"/>
+    <field name="content" type="text_ik" indexed="true" stored="true" multiValued="false"/>
+    <field name="type" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="createtime" type="pdate" indexed="true" stored="true" multiValued="false"/>
+    <fieldType name="text_ik" class="solr.TextField">
+        <analyzer type="index">
+            <tokenizer class="org.wltea.analyzer.lucene.IKTokenizerFactory" useSmart="false" />
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer class="org.wltea.analyzer.lucene.IKTokenizerFactory" useSmart="true" />
+        </analyzer>
+    </fieldType>
     <!-- docValues are enabled by default for long type so we don't need to index the version field  -->
     <field name="_version_" type="plong" indexed="false" stored="false"/>
     <field name="_root_" type="string" indexed="true" stored="false" docValues="false" />
@@ -939,17 +951,5 @@
        <str name="paramkey">param value</str>
      </similarity>
     -->
-    <field name="id" type="pint" indexed="true" stored="true" multiValued="false"/>
-    <field name="title" type="text_ik" indexed="true" stored="true" multiValued="false"/>
-    <field name="content" type="text_ik" indexed="true" stored="true" multiValued="false"/>
-    <field name="type" type="string" indexed="true" stored="true" multiValued="false"/>
-    <field name="createTime" type="pdate" indexed="true" stored="true" multiValued="false"/>
-    <fieldType name="text_ik" class="solr.TextField">
-        <analyzer type="index">
-            <tokenizer class="org.wltea.analyzer.lucene.IKTokenizerFactory" useSmart="false" />
-        </analyzer>
-        <analyzer type="query">
-            <tokenizer class="org.wltea.analyzer.lucene.IKTokenizerFactory" useSmart="true" />
-        </analyzer>
-    </fieldType>
+    
 </schema>

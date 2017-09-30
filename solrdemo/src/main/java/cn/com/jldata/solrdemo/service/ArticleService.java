@@ -26,7 +26,7 @@ import java.util.Map;
 @Service
 public class ArticleService {
     @Autowired
-    @Qualifier("solrClientDemo")
+    @Qualifier("solrClientEmbed")
     private SolrClient solrClientDemo;
     @Autowired
     private ArticleMapper articleMapper;

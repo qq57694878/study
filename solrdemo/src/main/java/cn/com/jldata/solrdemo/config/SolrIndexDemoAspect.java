@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class SolrIndexDemoAspect {
     @Autowired
-    @Qualifier("solrClientDemo")
+    @Qualifier("solrClientEmbed")
     private SolrClient solrClientDemo;
 
     @Pointcut("execution(* cn.com.jldata.solrdemo.mapper.ArticleMapper.insert*(..)) && args(cn.com.jldata.solrdemo.domain.Article)")//
