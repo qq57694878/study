@@ -47,28 +47,35 @@ public class ArticleService {
         return articleMapper.selectByPrimaryKey(id);
     }
 
+    /**
+     * 搜索
+     * @param q  要搜索的关键字
+     * @param page 分页参数
+     * @return
+     * @throws Exception
+     */
     public Page<Article> search(String q, Page<Article> page) throws Exception {
         Page<Article> result = new Page<Article>();
         SolrQuery query = new SolrQuery();
         //设置搜索域
         String word ="*";
         if(!StringUtils.isEmpty(q)){
-            word = buildQuery(q);
+            word = buildQuery(q);   //构造搜索条件
         }
         query.setQuery(word);
-        query.setStart(page.getPageNum());
-        query.setRows(page.getPageSize());
-        query.setHighlight(true);
+        query.setStart(page.getStartRow()); //开始位置
+        query.setRows(page.getPageSize());  //取出记录数
+        query.setHighlight(true);  //是否输出高亮
         query.addHighlightField("content").addHighlightField("title");
-        query.setHighlightFragsize(300);
-        query.setHighlightSnippets(1);
-        query.setHighlightSimplePre("<em>");
+        query.setHighlightFragsize(300); //高亮单片段长度
+        query.setHighlightSnippets(1);  //高亮片段个数
+        query.setHighlightSimplePre("<em>"); // 高亮包裹html标签
         query.setHighlightSimplePost("</em>");
-        QueryResponse qr = solrClientDemo.query(query);
+        QueryResponse qr = solrClientDemo.query(query);  //调用搜索查询服务
         int qt = qr.getQTime();
         System.out.println("搜索用时:" + qt + "毫秒");
         SolrDocumentList sdl = qr.getResults();
-        Map<String, Map<String, List<String>>> highlighting = qr.getHighlighting();
+        Map<String, Map<String, List<String>>> highlighting = qr.getHighlighting();//获取高亮数据
         for (SolrDocument doc : sdl) {
             Article a = new Article();
         /*    BeanMapper beanMapper = new BeanMapper();
@@ -100,7 +107,7 @@ public class ArticleService {
 
     private String buildQuery(String s) {
         StringBuilder q = new StringBuilder();
-        String splitWord = SearchUtil.splitWord(s);
+        String splitWord = SearchUtil.splitWord(s); //对关键字进行分词
         q.append("(content:" + splitWord + ")");
         q.append(" OR ");
         q.append("(title:" + splitWord + ")");

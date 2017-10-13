@@ -11,6 +11,7 @@ public class SolrdemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
+
 	}
 
 }
