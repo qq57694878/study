@@ -4,6 +4,7 @@ import cn.com.jldata.core.security.jwt.JWTService;
 import cn.com.jldata.core.util.Constants;
 import com.auth0.jwt.internal.org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +23,7 @@ import java.io.IOException;
 public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired
+    @Qualifier("jwtUserDetailsServiceImpl")
     private UserDetailsService userDetailsService;
 
     @Autowired

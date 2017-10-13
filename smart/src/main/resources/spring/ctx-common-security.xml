@@ -5,16 +5,11 @@
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http security="none" pattern="/s/**"/>
-    <http security="none" pattern="/cdn/**"/>
-	<http security="none" pattern="/favicon.ico"/>
-	<http security="none" pattern="/**/*.js"/>
-	<http security="none" pattern="/**/*.css"/>
-	<http security="none" pattern="/**/*.jpg"/>
-	<http security="none" pattern="/**/*.gif"/>
-	<http security="none" pattern="/**/*.png"/>
-	<http security="none" pattern="/auth/**" />
+	<http security="none" pattern="/static/**"/>
+	<http security="none" pattern="/public/**"/>
+	<http security="none" pattern="/resources/**"/>
 	<http security="none" pattern="/exclude/**" />
+	<http security="none" pattern="/auth/**" />
 	<http pattern="/api/**"  entry-point-ref="unauthorizedEntryPoint" use-expressions="false" create-session="stateless" >
 		<csrf disabled="true"/>
 		<custom-filter before="FORM_LOGIN_FILTER" ref="jwtAuthenticationFilter"/>
@@ -24,5 +19,8 @@
 		<intercept-url pattern="/**" access="ROLE_USER" />
 		-->
 	</http>
+	<authentication-manager>
+		<authentication-provider ref="authenticationProvider"/>
+	</authentication-manager>
 
 </beans:beans>

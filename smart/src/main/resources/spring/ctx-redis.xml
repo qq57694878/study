@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cache="http://www.springframework.org/schema/cache"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd ">
+	<!-- property文件自动加载 -->
+	<context:property-placeholder location="classpath:config.properties" />
+	<!-- 开启注解配置 -->
+	<context:annotation-config />
+
+	<context:component-scan base-package="cn.com.jldata">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<!-- redis配置 -->
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxIdle" value="${redis.maxIdle}" />
+		<property name="minIdle" value="${redis.minIdle}" />
+		<property name="maxTotal" value="${redis.maxTotal}" />
+		<!--对拿到的connection进行validateObject校验 -->
+		<property name="testOnBorrow" value="${redis.pool.testOnBorrow}" />
+		<!--在进行returnObject对返回的connection进行validateObject校验 -->
+		<property name="testOnReturn" value="${redis.pool.testOnReturn}" />
+	</bean>
+
+	<bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		  p:use-pool="true" p:pool-config-ref="jedisPoolConfig" p:host-name="${redis.host}" p:port="${redis.port}"
+		  p:timeout="${redis.connectionTimeout}" p:password="${redis.password}" p:database="0">
+	</bean>
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate" p:connection-factory-ref="jedisConnFactory"/>
+	<!-- redis template definition -->
+	<!--
+	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate" p:connection-factory-ref="jedisConnFactory">
+		<property name="enableDefaultSerializer" value="false"></property>
+		<property name="keySerializer" ref="fastjsonSerializer" />
+		<property name="valueSerializer" ref="fastjsonSerializer" />
+		<property name="hashKeySerializer" ref="fastjsonSerializer" />
+		<property name="hashValueSerializer" ref="fastjsonSerializer" />
+	</bean>
+	<bean id="stringRedisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate"
+		  p:connection-factory-ref="jedisConnFactory">
+	</bean>
+	<bean id="stringJsonRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+		  p:connection-factory-ref="jedisConnFactory">
+		<property name="enableDefaultSerializer" value="false"></property>
+		<property name="keySerializer" ref="stringSerializer" />
+		<property name="valueSerializer" ref="fastjsonSerializer" />
+		<property name="hashKeySerializer" ref="stringSerializer" />
+		<property name="hashValueSerializer" ref="fastjsonSerializer" />
+	</bean>
+	<bean id="stringJdkRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+		  p:connection-factory-ref="jedisConnFactory">
+		<property name="enableDefaultSerializer" value="false"></property>
+		<property name="keySerializer" ref="stringSerializer" />
+		<property name="valueSerializer" ref="jdkSerializer" />
+		<property name="hashKeySerializer" ref="stringSerializer" />
+		<property name="hashValueSerializer" ref="jdkSerializer" />
+	</bean>
+	<bean id="jdkRedisTemplate" class="org.springframework.data.redis.core.RedisTemplate" p:connection-factory-ref="jedisConnFactory">
+		<property name="enableDefaultSerializer" value="true"></property>
+	</bean>
+	<bean id="fastjsonSerializer" class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer" />
+	<bean id="stringSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+	<bean id="jdkSerializer" class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+	-->
+
+</beans>
