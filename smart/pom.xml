@@ -372,7 +372,6 @@
             <artifactId>orika-core</artifactId>
             <version>1.5.2</version>
         </dependency>
-
     </dependencies>
     <properties>
         <jackson.version>2.8.0</jackson.version>
