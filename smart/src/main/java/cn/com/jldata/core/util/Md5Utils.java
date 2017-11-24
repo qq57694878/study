@@ -1,12 +1,15 @@
 package cn.com.jldata.core.util;
 
+import org.apache.commons.codec.binary.Hex;
+
 import java.io.InputStream;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Md5Utils {
     private final static char hexDigits[] = { '0', '1', '2', '3', '4', '5',
             '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
-    public static String getMd5(String text) {
+    public static String md5(String text) {
         try {
             MessageDigest md = MessageDigest.getInstance("md5");
             md.update(text.getBytes("UTF-8"));
@@ -27,9 +30,21 @@ public class Md5Utils {
             throw new IllegalStateException(ex);
         }
     }
+    public static String md5(byte[] source) {
+        MessageDigest digest = null;
 
+        try {
+            digest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException var3) {
+            var3.printStackTrace();
+            return "";
+        }
 
-    public final static String MD5(InputStream is) {
+        byte[] hashed = digest.digest(source);
+        return Hex.encodeHexString(hashed);
+    }
+
+    public final static String md5(InputStream is) {
         InputStream in = is;
         byte buffer[] = new byte[1024];
         int len;
