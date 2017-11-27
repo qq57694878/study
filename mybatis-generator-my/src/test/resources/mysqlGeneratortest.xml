@@ -13,7 +13,7 @@
         <sqlMapGenerator targetPackage="mapper" targetProject="${project.root}/src/main/resources" />
         <javaClientGenerator targetPackage="cn.com.jldata.solrdemo.mapper" targetProject="${project.root}/src/main/java" type="XMLMAPPER" />
 
-        <table tableName="article" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+        <table tableName="attachment" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
                enableUpdateByExample="false"/>
 
     </context>

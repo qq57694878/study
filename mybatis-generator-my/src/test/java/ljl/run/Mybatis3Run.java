@@ -31,7 +31,7 @@ public class Mybatis3Run {
         generateJavaFiles("/localhostoracle.xml");
     }
     @Test
-    public  void generateJavaFilesLocalOracle() throws Exception {
+    public  void generateJavaFilesLocalMysql() throws Exception {
         generateJavaFiles("/mysql-generator-config.xml");
     }
 
@@ -43,6 +43,11 @@ public class Mybatis3Run {
     @Test
     public  void generatorMysqlGeneratorTest() throws Exception {
         generateJavaFiles("/mysqlGeneratortest.xml");
+    }
+
+    @Test
+    public  void generatorAttachment() throws Exception {
+        generateJavaFiles("/attachment_generator.xml");
     }
 
 

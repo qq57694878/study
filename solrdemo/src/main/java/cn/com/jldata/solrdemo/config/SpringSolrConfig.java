@@ -1,6 +1,5 @@
 package cn.com.jldata.solrdemo.config;
 
-import com.codahale.metrics.MetricRegistry;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.embedded.EmbeddedSolrServer;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
