@@ -63,7 +63,7 @@ public class AttachmentService {
         query.setStart(page.getStartRow()); //开始位置
         query.setRows(page.getPageSize());  //取出记录数
         query.setHighlight(true);  //是否输出高亮
-        query.addHighlightField("content").addHighlightField("title");
+        query.addHighlightField("content").addHighlightField("title").addHighlightField("desc");
         query.setHighlightFragsize(300); //高亮单片段长度
         query.setHighlightSnippets(1);  //高亮片段个数
         query.setHighlightSimplePre("<em>"); // 高亮包裹html标签
@@ -80,10 +80,12 @@ public class AttachmentService {
         String id  =String.valueOf(doc.get("id"));
             List<String> contents = highlighting.get(id).get("content");
             List<String> titles = highlighting.get(id).get("title");
+            List<String> descs = highlighting.get(id).get("desc");
             a.setId(id);
             a.setContent((contents!=null&&contents.size()>0)?listToString(contents):(String)doc.get("content"));
             a.setType((String)doc.get("type"));
             a.setTitle((titles!=null&&titles.size()>0)?listToString(titles):(String)doc.get("title"));
+            a.setDesc(descs!=null&&descs.size()>0?listToString(descs):(String)doc.get("desc"));
             a.setCreatetime((Date) doc.get("createtime"));
             result.add(a);
         }
@@ -111,7 +113,7 @@ public class AttachmentService {
         q.append(" OR ");
         q.append("(id:" + s + ")");
         q.append(" OR ");
-        q.append("(type:" + s + ")");
+        q.append("(desc:" + s + ")");
         return q.toString();
     }
 
