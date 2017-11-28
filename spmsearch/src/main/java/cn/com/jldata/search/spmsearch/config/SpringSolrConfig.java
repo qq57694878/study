@@ -16,8 +16,8 @@ public class SpringSolrConfig {
     @Value("${solr.serverurl}")
     private String solrServerUrl;
 
-    @Bean("solrClientDemo")
-    public SolrClient solrClientDemo() {
+    @Bean("solrClientAttachment")
+    public SolrClient solrClient() {
         String urlString = solrServerUrl+"spm_attachment";
         SolrClient solr = new HttpSolrClient.Builder(urlString).build();
         return solr;

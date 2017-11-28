@@ -1,6 +1,7 @@
 package cn.com.jldata.search.spmsearch.mapper;
 
 import cn.com.jldata.search.spmsearch.domain.Attachment;
+import com.github.pagehelper.Page;
 
 public interface AttachmentMapper {
     /**
@@ -58,4 +59,10 @@ public interface AttachmentMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(Attachment record);
+
+    /**
+     *
+     * @return
+     */
+    Page<Attachment> selectAll();
 }

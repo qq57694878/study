@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class SolrIndexAttachmentAspect {
     @Autowired
-    @Qualifier("solrClientDemo")
-    private SolrClient solrClientDemo;
+    @Qualifier("solrClientAttachment")
+    private SolrClient solrClientAttachment;
 
     @Pointcut("execution(* cn.com.jldata.search.spmsearch.mapper.AttachmentMapper.insert*(..)) && args(cn.com.jldata.search.spmsearch.domain)")//
     public void insertAttachment() {}
@@ -28,8 +28,8 @@ public class SolrIndexAttachmentAspect {
         solrInputDocument.addField("content",attachment.getContent());
         solrInputDocument.addField("desc",attachment.getDesc());
         solrInputDocument.addField("createtime",attachment.getCreatetime());
-        solrClientDemo.add(solrInputDocument);
-        solrClientDemo.commit();
+        solrClientAttachment.add(solrInputDocument);
+        solrClientAttachment.commit();
     }
 
     @Pointcut("execution(* cn.com.jldata.search.spmsearch.mapper.AttachmentMapper.delete*(..)) && args(String)")//
@@ -37,8 +37,8 @@ public class SolrIndexAttachmentAspect {
     @After("cn.com.jldata.search.spmsearch.config.SolrIndexAttachmentAspect.deleteArticle() && args(id)")
     public void afterdeleteArticle(Integer id) throws Throwable {
         System.out.println(id);
-        solrClientDemo.deleteById(String.valueOf(id));
-        solrClientDemo.commit();
+        solrClientAttachment.deleteById(String.valueOf(id));
+        solrClientAttachment.commit();
     }
 
     @Pointcut("execution(* cn.com.jldata.search.spmsearch.mapper.AttachmentMapper.update*(..)) && args(cn.com.jldata.search.spmsearch.domain.Attachment)")//
@@ -52,7 +52,7 @@ public class SolrIndexAttachmentAspect {
         solrInputDocument.addField("content",attachment.getContent());
         solrInputDocument.addField("desc",attachment.getDesc());
         solrInputDocument.addField("createtime",attachment.getCreatetime());
-        solrClientDemo.add(solrInputDocument);
-        solrClientDemo.commit();
+        solrClientAttachment.add(solrInputDocument);
+        solrClientAttachment.commit();
     }
 }
