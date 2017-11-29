@@ -1,7 +1,9 @@
 package cn.com.jldata.search.spmsearch.vo;
 
 
-import cn.com.jldata.solrdemo.common.Constants;
+
+
+import cn.com.jldata.search.spmsearch.common.Constants;
 
 import java.io.Serializable;
 

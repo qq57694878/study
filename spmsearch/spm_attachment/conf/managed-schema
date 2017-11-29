@@ -114,6 +114,7 @@
     <field name="title" type="text_ik" indexed="true" stored="true" multiValued="false"/>
     <field name="desc" type="text_ik" indexed="true" stored="true" multiValued="false"/>
     <field name="content" type="text_ik" indexed="true" stored="true" multiValued="false"/>
+    <field name="url" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="type" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="createtime" type="pdate" indexed="true" stored="true" multiValued="false"/>
     <fieldType name="text_ik" class="solr.TextField">

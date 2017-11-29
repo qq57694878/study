@@ -1,0 +1,33 @@
+= *手机端接口文档*
+
+= 8.2.查看具体工单明细信息
+
+.request
+include::{snippets}/TestMaintennancePlanMobileController/testSelectPlanDetailMessage/http-request.adoc[]
+
+.response
+include::{snippets}/TestMaintennancePlanMobileController/testSelectPlanDetailMessage/http-response.adoc[]
+
+= 8.3.扫描设备或查询设备信息
+
+.request
+include::{snippets}/TestMaintennancePlanMobileController/testScanDevice/http-request.adoc[]
+
+.response
+include::{snippets}/TestMaintennancePlanMobileController/testScanDevice/http-response.adoc[]
+
+= 8.4.完成工作计划
+
+.request
+include::{snippets}/TestMaintennancePlanMobileController/testFinishPlan/http-request.adoc[]
+
+.response
+include::{snippets}/TestMaintennancePlanMobileController/testFinishPlan/http-response.adoc[]
+
+= 8.5.获取设备详细信息
+
+.request
+include::{snippets}/TestMaintennancePlanMobileController/testGetDeviceInfo/http-request.adoc[]
+
+.response
+include::{snippets}/TestMaintennancePlanMobileController/testGetDeviceInfo/http-response.adoc[]
