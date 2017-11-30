@@ -6,13 +6,20 @@ import cn.com.jldata.search.spmsearch.vo.RestResult;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class TesAttachmentController extends TestRestBussinessBase {
+    @Before
+    public void mybefore(){
+        atomicInteger = new AtomicInteger();
+    }
+    private java.util.concurrent.atomic.AtomicInteger atomicInteger;
 
     @Test
     public void testSaveALL() throws IOException{
@@ -21,19 +28,30 @@ public class TesAttachmentController extends TestRestBussinessBase {
         }
     }
 
+    public static String getId(){
+        return  UUID.randomUUID().toString().replaceAll("-", "");
+    }
     @Test
     public void testSave() throws IOException {
         Map<String,Object> param = new HashMap<String,Object>();
         Random random = new Random();
-       int i= random.nextInt(100000);
-        param.put("id",i);
+        int i= random.nextInt(100000);
+        param.put("id",getId());
         param.put("title","标题"+i);
         param.put("desc","描述"+i);
         param.put("content","内容"+i);
-        param.put("type","doc");
         param.put("createtime","2017-01-01 01:01:01");
+        int jj =  atomicInteger.getAndIncrement();{
+            if(jj%2==0){
+                param.put("type","doc");
+                param.put("url","https://pan.baidu.com/s/1mhPU6KS");
+            }else{
+                param.put("type","mp4");
+                param.put("url","https://pan.baidu.com/s/1ctvfWU");
+            }
+        }
         Response r = RestAssured.given(this.spec).contentType(ContentType.JSON).body(objectMapper.writeValueAsString(param))
-                .post(""+PRE_PATH+"/article/create.json");
+                .post(""+PRE_PATH+"/attachment/create.json");
         r.then().statusCode(200);
         r.prettyPrint();
     }
@@ -42,10 +60,10 @@ public class TesAttachmentController extends TestRestBussinessBase {
         Map<String,Object> param = new HashMap<String,Object>();
         List<Map<String,Object>>list = selectAll();
         if(list!=null&&list.size()>0){
-            int id = Integer.parseInt(String.valueOf(list.get(0).get("id")));
+            String id = String.valueOf(list.get(0).get("id"));
             param.put("id",id);
             Response r = RestAssured.given(this.spec).contentType(ContentType.JSON).body(id)
-                    .post(""+PRE_PATH+"/article/delete.json");
+                    .post(""+PRE_PATH+"/attachment/delete.json");
             r.then().statusCode(200);
             r.prettyPrint();
         }
@@ -55,10 +73,10 @@ public class TesAttachmentController extends TestRestBussinessBase {
         Map<String,Object> param = new HashMap<String,Object>();
         List<Map<String,Object>>list = selectAll();
         if(list!=null&&list.size()>0){
-            int id = Integer.parseInt(String.valueOf(list.get(0).get("id")));
+            String id =String.valueOf(list.get(0).get("id"));
             param.put("id",id);
             Response r = RestAssured.given(this.spec).contentType(ContentType.JSON).body(id)
-                    .post(""+PRE_PATH+"/article/findOne.json");
+                    .post(""+PRE_PATH+"/attachment/findOne.json");
             r.then().statusCode(200);
             r.prettyPrint();
         }
@@ -73,7 +91,7 @@ public class TesAttachmentController extends TestRestBussinessBase {
     public List<Map<String,Object>> selectAll() throws IOException {
         Map<String,Object> param = new HashMap<String,Object>();
         Response r = RestAssured.given(this.spec).contentType(ContentType.JSON).body(objectMapper.writeValueAsString(param))
-                .post(""+PRE_PATH+"/article/findAll.json");
+                .post(""+PRE_PATH+"/attachment/findAll.json");
         r.then().statusCode(200);
         r.prettyPrint();
         RestResult result = this.objectMapper.readValue(r.asString(), RestResult.class);
@@ -88,7 +106,7 @@ public class TesAttachmentController extends TestRestBussinessBase {
         param.put("pageSize",10);
         param.put("word","标题");
         Response r = RestAssured.given(this.spec).contentType(ContentType.JSON).body(param)
-                .post(""+PRE_PATH+"/article/search.json");
+                .post(""+PRE_PATH+"/attachment/search.json");
         r.then().statusCode(200);
         r.prettyPrint();
     }
@@ -98,7 +116,7 @@ public class TesAttachmentController extends TestRestBussinessBase {
     public void testReIndexAll() throws IOException {
         Map<String,Object> param = new HashMap<String,Object>();
         Response r = RestAssured.given(this.spec).contentType(ContentType.JSON).body(param)
-                .post(""+PRE_PATH+"/article/reIndexAll.json");
+                .post(""+PRE_PATH+"/attachment/reIndexAll.json");
         r.then().statusCode(200);
         r.prettyPrint();
     }
@@ -130,15 +148,25 @@ public class TesAttachmentController extends TestRestBussinessBase {
                 i++;
                 String tt =String.valueOf(line+i);
                 String title = tt.substring(0,tt.length()>500?500:tt.length());
+                String desc = reader.readLine()+i;
                 String content = reader.readLine()+i;
                 Map<String,Object> param = new HashMap<String,Object>();
-                param.put("id",i);
+                param.put("id",getId());
                 param.put("title",title);
+                param.put("desc",desc);
                 param.put("content",content);
-                param.put("type",getType());
+                int jj =  atomicInteger.getAndIncrement();{
+                    if(jj%2==0){
+                        param.put("type","doc");
+                        param.put("url","https://pan.baidu.com/s/1mhPU6KS");
+                    }else{
+                        param.put("type","mp4");
+                        param.put("url","https://pan.baidu.com/s/1ctvfWU");
+                    }
+                }
                 param.put("createtime",getCreateTime());
                 Response r = RestAssured.given(this.spec).contentType(ContentType.JSON).body(objectMapper.writeValueAsString(param))
-                        .post(""+PRE_PATH+"/article/create.json");
+                        .post(""+PRE_PATH+"/attachment/create.json");
                 r.then().statusCode(200);
                 //r.prettyPrint();
             }
@@ -146,11 +174,7 @@ public class TesAttachmentController extends TestRestBussinessBase {
 
     }
 
-   public String getType(){
-       Random random = new Random();
-       int i = random.nextInt(10);
-       return String.valueOf(i+10);
-    }
+
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public String getCreateTime(){
         Random random = new Random();

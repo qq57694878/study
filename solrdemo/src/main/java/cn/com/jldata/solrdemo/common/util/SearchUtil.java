@@ -94,7 +94,7 @@ public class SearchUtil {
 	}*/
 	public static void main(String[] args) {
 		//String s  =SearchUtil.splitWord("这是一个中文分词的例子，你可以直接运行它！IKAnalyer can analysis english text too");
-		String s  =SearchUtil.splitWord("2017-01-27");
+		String s  =SearchUtil.splitWord("因为年后");
 		System.out.println(s);
 	}
 

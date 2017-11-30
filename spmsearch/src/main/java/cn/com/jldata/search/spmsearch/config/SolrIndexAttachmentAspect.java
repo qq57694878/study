@@ -19,6 +19,7 @@ public class SolrIndexAttachmentAspect {
 
     @Pointcut("execution(* cn.com.jldata.search.spmsearch.mapper.AttachmentMapper.insert*(..)) && args(cn.com.jldata.search.spmsearch.domain.Attachment)")//
     public void insertAttachment() {}
+
     @After("cn.com.jldata.search.spmsearch.config.SolrIndexAttachmentAspect.insertAttachment() && args(attachment)")
     public void afterInsertArticle(Attachment attachment) throws Throwable {
         System.out.println(attachment);

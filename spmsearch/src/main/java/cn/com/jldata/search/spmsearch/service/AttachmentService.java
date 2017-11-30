@@ -87,6 +87,7 @@ public class AttachmentService {
             a.setTitle((titles!=null&&titles.size()>0)?listToString(titles):(String)doc.get("title"));
             a.setDesc(descs!=null&&descs.size()>0?listToString(descs):(String)doc.get("desc"));
             a.setCreatetime((Date) doc.get("createtime"));
+            a.setUrl((String)doc.get("url"));
             result.add(a);
         }
         result.setPageNum(page.getPageNum());
@@ -128,8 +129,10 @@ public class AttachmentService {
                 SolrInputDocument solrInputDocument =new SolrInputDocument();
                 solrInputDocument.addField("id",String.valueOf(attachment.getId()));
                 solrInputDocument.addField("title",attachment.getTitle());
+                solrInputDocument.addField("desc",attachment.getDesc());
                 solrInputDocument.addField("content",attachment.getContent());
                 solrInputDocument.addField("type",attachment.getType());
+                solrInputDocument.addField("url",attachment.getUrl());
                 solrInputDocument.addField("createtime",attachment.getCreatetime());
                 solrClientAttachment.add(solrInputDocument);
                 solrClientAttachment.commit();
