@@ -16,35 +16,6 @@
                 font-size: 90px !important
             }
         }
-        @font-face {
-            font-family: sicons;
-            src: url(//m.baidu.com/static/search/iconfont/search_iconfont_128e950d.eot);
-            src: url(//m.baidu.com/static/search/iconfont/search_iconfont_128e950d.eot#iefix) format('embedded-opentype'), url(//m.baidu.com/static/search/iconfont/search_iconfont_128e950d.woff) format('woff'), url(//m.baidu.com/static/search/iconfont/search_iconfont_128e950d.ttf) format('truetype'), url(//m.baidu.com/static/search/iconfont/search_iconfont_128e950d.svg?#iconfont) format('svg');
-            font-weight: 400;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: alaicons;
-            src: url(//m.baidu.com/static/search/iconfont/iconfont_58af466f.eot);
-            src: url(//m.baidu.com/static/search/iconfont/iconfont_58af466f.eot#iefix) format('embedded-opentype'), url(//m.baidu.com/static/search/iconfont/iconfont_58af466f.woff) format('woff'), url(//m.baidu.com/static/search/iconfont/iconfont_58af466f.ttf) format('truetype'), url(//m.baidu.com/static/search/iconfont/iconfont_58af466f.svg?#iconfont) format('svg');
-            font-weight: 400;
-            font-style: normal
-        }
-
-        [class^=sicon-], [class*=" sicon-"] {
-            font-family: sicons !important;
-            font-style: normal;
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-stroke-width: .2px
-        }
-
-        [class^=alaicon-], [class*=" alaicon-"] {
-            font-family: alaicons !important;
-            font-style: normal;
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-stroke-width: .2px
-        }
 
         * {
             margin: 0;
@@ -66,6 +37,14 @@
         a:visited {
             color: #999;
         }
+        input, button {
+            border: 0;
+            border-radius: 0;
+            -webkit-border-radius: 0;
+            background-color: transparent;
+            -webkit-appearance: none;
+            -webkit-box-sizing: border-box
+        }
         /*!css/pmd.css*/
         @font-face {
             font-family: cicons;
@@ -81,31 +60,7 @@
             -webkit-font-smoothing: antialiased
         }
 
-        .c-btn .c-icon {
-            position: relative;
-            top: -1px;
-            margin-right: .05rem;
-            font-size: 14px;
-            vertical-align: middle
-        }
 
-
-        input[type=search]:focus {
-            background-color: transparent
-        }
-
-        input[type=search]::-webkit-search-cancel-button {
-            display: none
-        }
-
-        input, button {
-            border: 0;
-            border-radius: 0;
-            -webkit-border-radius: 0;
-            background-color: transparent;
-            -webkit-appearance: none;
-            -webkit-box-sizing: border-box
-        }
 
         .se-page-hd {
             position: static;
@@ -125,6 +80,17 @@
 
         .se-head-logo .se-logo img {
             padding-top: 7px
+        }
+        .se-head-tablink {
+            width: 100%;
+            display: block;
+            position: relative;
+            border-bottom: 1px solid #e6e6e6;
+            background-color: #f8f8f8;
+            height: 10px;
+            overflow-y: visible;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .se-form {
@@ -228,6 +194,9 @@
             border: 0 none;
             background: 0 0
         }
+        .se-page-bd .c-container {
+            margin-top: 0;
+        }
 
         .c-container {
             width: auto;
@@ -240,6 +209,7 @@
             color: #555;
             background-color: #fff
         }
+
 
         .c-blocka {
             display: block
@@ -464,6 +434,7 @@
             </div>
         </form>
     </div>
+    <div class="se-head-tablink"></div>
 </div>
 <div id="page" class="search-page">
     <div id="page-bd" class="se-page-bd">
@@ -486,8 +457,6 @@
                             class="c-gray c-gap-left">2017年11月19日</span></div>
                 </div>
             </div>
-        </div>
-        <div id="results" class="results">
             <div class="result c-result" srcid="www_normal" new_srcid="1599" order="1" tpl="www_normal"
                  data-log="{'fm':'','ensrcid':'www_normal','order':'1','mu':'http://m.nantaihu.com/read-htm-tid-92657337-fpage-3.html'}">
                 <div class="c-container"><a
@@ -505,7 +474,9 @@
                             class="c-gray c-gap-left">2017年11月19日</span></div>
                 </div>
             </div>
+
         </div>
+
 
         <div id="page-controller" class="se-page-controller">
             <div class="new-pagenav c-flexbox">
