@@ -15,10 +15,18 @@ public class SpringSolrConfig {
 
     @Value("${solr.serverurl}")
     private String solrServerUrl;
+    @Value("${solr.solr_core_url}")
+    private String solrCoreUrl;
 
     @Bean("solrClientAttachment")
-    public SolrClient solrClient() {
+    public SolrClient solrClientAttachment() {
         String urlString = solrServerUrl+"spm_attachment";
+        SolrClient solr = new HttpSolrClient.Builder(urlString).build();
+        return solr;
+    }
+    @Bean("solrClient")
+    public SolrClient solrClient() {
+        String urlString = solrCoreUrl;
         SolrClient solr = new HttpSolrClient.Builder(urlString).build();
         return solr;
     }

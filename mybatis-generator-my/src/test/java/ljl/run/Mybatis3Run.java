@@ -50,6 +50,11 @@ public class Mybatis3Run {
         generateJavaFiles("/attachment_generator.xml");
     }
 
+    @Test
+    public  void generatorHelpFile() throws Exception {
+        generateJavaFiles("/help_file_generator.xml");
+    }
+
 
     private void generateJavaFiles(String configFile) throws Exception {
         List<String> warnings = new ArrayList<String>();
