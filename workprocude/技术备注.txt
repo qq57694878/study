@@ -6,3 +6,8 @@ Swagger
 
 Ionic2 用来js开发app
 Cordova
+
+持续集成：jenkins 或 doctor
+http://59.46.168.46:8012/jenkins/login?from=%2Fjenkins%2F
+linux 安装rabbitmq
+http://www.linuxidc.com/Linux/2016-03/129557.htm

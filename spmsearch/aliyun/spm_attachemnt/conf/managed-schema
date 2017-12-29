@@ -117,7 +117,23 @@
          WARNING: The _text_ catch-all field will significantly increase your index size.
          If you don't need it, consider removing it and the corresponding copyField directive.
     -->
-    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="file_id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+    <field name="file_title" type="text_ik" indexed="true" stored="true" multiValued="false"/>
+    <field name="file_description" type="text_ik" indexed="true" stored="true" multiValued="false"/>
+    <field name="file_type" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="file_extension_name" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="file_content" type="text_ik" indexed="true" stored="true" multiValued="false"/>
+    <field name="file_url" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="create_date" type="date" indexed="true" stored="true" multiValued="false"/>
+    <fieldType name="text_ik" class="solr.TextField">
+        <analyzer type="index">
+            <tokenizer class="org.wltea.analyzer.lucene.IKTokenizerFactory" useSmart="false" />
+        </analyzer>
+        <analyzer type="query">
+            <tokenizer class="org.wltea.analyzer.lucene.IKTokenizerFactory" useSmart="true" />
+        </analyzer>
+    </fieldType>
+
     <field name="_version_" type="long" indexed="true" stored="true"/>
     <field name="_root_" type="string" indexed="true" stored="false"/>
     <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
@@ -184,7 +200,7 @@
     <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
     -->
-    <uniqueKey>id</uniqueKey>
+    <uniqueKey>file_id</uniqueKey>
 
     <!-- copyField commands copy one field to another at the time a document
        is added to the index.  It's used either to index the same field differently,

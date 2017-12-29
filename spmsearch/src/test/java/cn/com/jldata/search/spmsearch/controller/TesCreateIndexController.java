@@ -27,7 +27,14 @@ public class TesCreateIndexController extends TestRestBussinessBase {
 
 
 
-
+    @Test
+    public void testDeleteAll() throws IOException {
+        Map<String,Object> param = new HashMap<String,Object>();
+        Response r = RestAssured.given(this.spec).contentType(ContentType.JSON).body(param)
+                .post(""+PRE_PATH+"/deleteAll.json");
+        r.then().statusCode(200);
+        r.prettyPrint();
+    }
 
 
 

@@ -17,4 +17,9 @@ public class CreateIndexController {
         service.reIndexall();
         return new RestResult();
     }
+    @RequestMapping("deleteAll")
+    public RestResult deleteAll() throws Exception {
+        service.deleteAll();
+        return new RestResult();
+    }
 }

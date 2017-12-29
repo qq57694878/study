@@ -20,6 +20,12 @@ public class CreateIndexService {
     @Autowired
     @Qualifier("solrClient")
     private SolrClient solrClient;
+
+    public void deleteAll() throws Exception {
+        solrClient.deleteByQuery("*:*");
+        solrClient.optimize();
+    }
+
     public void reIndexall() throws Exception {
         solrClient.deleteByQuery("*:*");
         Page<Map<String,Object>> page = new Page<Map<String,Object>>(1,100);
