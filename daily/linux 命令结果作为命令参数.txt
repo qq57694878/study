@@ -1,0 +1,6 @@
+方法1:
+./test `ps -ef | grep redis-server | grep -v grep | awk '{print $2}'`
+yum -e --nodep `rpm -qa erlang| awk '{print $1}'`
+方法2：
+ps -ef | grep redis-server | grep -v grep | awk '{print $2}'  | xargs ./test
+ rpm -qa erlang| awk '{print $1}' | xargs  yum -e --nodep

@@ -1,0 +1,314 @@
+    1  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+    2  vim /etc/inittab 
+    3  systemctl get-default
+    4  systemctl set-defualt multi-user.target
+    5  systemctl set-default multi-user.target
+    6  reboot
+    7  pwd
+    8  ifconfig
+    9  pwd
+   10  ifconfig
+   11  ifconfig more
+   12  more ifconfig
+   13  ifconfig >> 1.txt
+   14  vim 1.txt
+   15  ifconfig
+   16  vim 1.txt 
+   17  pwd
+   18  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   19  cd ~
+   20  vim 1.txt 
+   21  network -t
+   22  route -t
+   23  route 
+   24  netstat -t
+   25  reboot
+   26  ifconfig
+   27  pwd
+   28  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   29  ping www.baidu.com
+   30  ifconfig
+   31  quit
+   32  logout
+   33  ipconfig > 1.txt
+   34  ifconfig > 1.txt
+   35  vim 1.txt
+   36  pwd
+   37  cd ../
+   38  ls
+   39  cd opt
+   40  ls
+   41  pwd
+   42  cd ../
+   43  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   44  service network restart
+   45  ifconfig
+   46  ping wwww.baidu.com
+   47  ifconfig
+   48  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   49  systemctl network restart
+   50  systemctl restart network
+   51  ifconfig
+   52  ping www.baidu.com
+   53  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   54  systemctl restart network
+   55  ifconfig
+   56  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   57  systemctl network restart
+   58  systemctl restart network
+   59  ifconfig
+   60  ping www.baidu.com
+   61  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   62  systemctl restart network
+   63  ping www.baidu.com
+   64  ifconfig -a
+   65  vim /etc/resolv.conf 
+   66  ping 220.181.111.188
+   67  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   68  systemctl restart network
+   69  ping 172.16.3.64
+   70  ping 172.16.3.1
+   71  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   72  systemctl restart network
+   73  ping www.baidu.com
+   74  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   75  systemctl restart network
+   76  pwd
+   77  ifconfig
+   78  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   79  ping www.baidu.com
+   80  ifconfig
+   81  ifconfig > /root/ifconfig.txt
+   82  vim /root/ifconfig.txt 
+   83  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   84  netstat
+   85  netstat aux
+   86  netstat -tunl
+   87  pwd
+   88  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+   89  firewall-cmd --state
+   90  vim /etc/sysconfig/iptables-config 
+   91  pwd
+   92  ls
+   93  chmod ./* 755
+   94  chmod jdk-9.0.1_linux-x64_bin.tar.gz 755
+   95  chmod --help
+   96  chmod 755 jdk-9.0.1_linux-x64_bin.tar.gz solr-7.1.0.tgz 
+   97  ls
+   98  ll
+   99  chmod install_solr_service.sh 755
+  100  chmod 755 install_solr_service.sh 
+  101  ll
+  102  tar --help
+  103  pwd
+  104  ls
+  105  tar ./jdk-9.0.1_linux-x64_bin.tar.gz /opt/jdk-9.0.1_linux-x64
+  106  tar -zxvf ./jdk-9.0.1_linux-x64_bin.tar.gz /opt/jdk-9.0.1_linux-x64
+  107  tar -zxvf ./jdk-9.0.1_linux-x64_bin.tar.gz /opt/
+  108  cd /
+  109  ls
+  110  cd opt
+  111  ll
+  112  cd 
+  113  pwd
+  114  ls
+  115  mkdirs /opt/jdk-9.0.1_linux-x64
+  116  mkdir /opt/jdk-9.0.1_linux-x64
+  117  tar -zxvf jdk-9.0.1_linux-x64_bin.tar.gz  -C /opt/jdk-9.0.1_linux-x64/
+  118  cd /opt
+  119  ls
+  120  cd jdk-9.0.1_linux-x64/
+  121  ls
+  122  mv --help
+  123  mv jdk-9.0.1/ /opt
+  124  ll
+  125  cd ../
+  126  ll
+  127  rm jdk-9.0.1_linux-x64/
+  128  rm -rf jdk-9.0.1_linux-x64/
+  129  ll
+  130  cd jdk-9.0.1/
+  131  ls
+  132  pwd
+  133  vim /etc/profile
+  134  source /etc/profile
+  135  java -version
+  136  cd ../
+  137  ls
+  138  cd ../
+  139  ls
+  140  cd usr
+  141  ls
+  142  cd local/
+  143  ls
+  144  cd ../
+  145  ls
+  146  cd ../
+  147  ls
+  148  cd home/
+  149  ls
+  150  cd ../
+  151  ls
+  152  rpm -qa|grep java
+  153  rpm -qa|grep java|grep x86_64
+  154  rpm -e java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+  155  rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+  156  rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_6
+  157  rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
+  158  rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
+  159  rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64
+  160  java -version
+  161  vim /etc/profile
+  162  source /etc/profile
+  163  echo $JAVA_HOME
+  164  java -version
+  165  cd 
+  166  ls
+  167  ./install_solr_service.sh solr-7.1.0.tgz 
+  168  history
+  169  cd /opt/jdk-9.0.1/
+  170  ls
+  171  cd bin
+  172  ls
+  173  cd ../
+  174  ls
+  175  cd relea
+  176  cd release
+  177  cd lib
+  178  ls
+  179  cd ../
+  180  PWD
+  181  pwd
+  182  cd 
+  183  tar -zxvf ./jre-9.0.1_linux-x64_bin.tar.gz /opt
+  184  tar -zxvf ./jre-9.0.1_linux-x64_bin.tar.gz -C /opt
+  185  systemctl status firewalld.service 
+  186  systemctl stop firewalld.service 
+  187  systemctl disable firewalld.service 
+  188  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+  189  systemctl restart network
+  190  systemctl status firewalld.service
+  191  yum install fping
+  192  fping
+  193  mtr
+  194  yum install erlang
+  195  yum update -y
+  196  ping www.baidu.com
+  197  vim /etc/sysconfig/network/
+  198  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+  199  ping www.163.com
+  200  systemctl restart network
+  201  cd /etc/sysconfig
+  202  ls
+  203  ll
+  204  ping 172.16.3.1
+  205  ping www.baidu.com
+  206  cd /etc/
+  207  vim ./resolv.conf 
+  208  systemctl restart network
+  209  ping www.baidu.com
+  210  ping www.163.com
+  211  ifconfig
+  212  route -t
+  213  route -n
+  214  vim  /etc/sysconfig/network
+  215  systemctl restart network
+  216  ping www.baidu.com
+  217  瓶
+  218  ping 172.16.3.114
+  219  vim /etc/sysconfig/iptables-config 
+  220  systemctl status iptables.service 
+  221  ps -ef|grep iptables
+  222  cd /etc/sysconfig/network-scripts/
+  223  ll
+  224   ip route show
+  225  ip route add default via 172.16.3.1 dev enp0s3
+  226  ip route show
+  227  ping www.baidu.com
+  228  vim ./ifcfg-enp0s3
+  229  systemctl restart network
+  230  ping www.baidu.com
+  231  vim /etc/resolv.conf 
+  232  vim /etc/sysconfig/network
+  233  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+  234  systemctl restart network
+  235  ifconfig
+  236  ifconfig > 1.txt
+  237  vim 1.txt
+  238  vim /etc/sysconfig/network-scripts/ifcfg-enp0s3 
+  239  systemctl restart network
+  240  ipconfig > 1.txt
+  241  ifconfig > 1.txt
+  242  vim 1.txt
+  243  ping www.baidu.com
+  244  pwd
+  245  ifconfig
+  246  ifconfig
+  247  ifconfig > 1.txt
+  248  cat 1.txt
+  249  vim 1.txt
+  250  ping www.baidu.com
+  251  cd /etc/sysconfig/network-scripts/
+  252  vim ifcfg-enp0s8
+  253  ll
+  254  [[A
+  255  cp ifcfg-enp0s3 ifcfg-enp0s8
+  256  vim ifcfg-enp0s8
+  257  systemctl restart network
+  258  vim ifcfg-enp0s8
+  259  systemctl restart network
+  260  vim ifcfg-enp0s8
+  261  systemctl restart network
+  262  ifconfig >1.txt
+  263  vim 1.txt
+  264  ping www.baidu.com
+  265  route -n
+  266  ping 192.168.56.1
+  267  ping www.baidu.com
+  268  ifconfig
+  269  ping www.baidu.com
+  270  ping www.163.com
+  271  cd /opt
+  272  ls
+  273  cd rabbitmq
+  274  ls
+  275  cd sbin
+  276  ls
+  277  ./rabbitmq-server 
+  278  netstat -tunl
+  279  ./rabbitmq-server -detached
+  280  ./rabbitmqctl status
+  281  netstat -tunl
+  282  pwd
+  283  mkdir /etc/rabbitmq
+  284  ll
+  285  ./rabbitmqctl stop
+  286  ./rabbitmq-plugins enable rabbitmq_management
+  287  ./rabbitmq-server -detached
+  288  rabbitmqctl add_user ljl ljl
+  289  ls
+  290  rabbitmqctl add_user ljl ljl
+  291  ./rabbitmqctl add_user ljl ljl
+  292  ./rabbitmqctl set_permissions -p "/" ljl ".*" ".*" ".*"
+  293  rabbitmqctl set_user_tags ljl administrator
+  294  ./rabbitmqctl set_user_tags ljl administrator
+  295  uname -r
+  296  yum -y install docker
+  297  systemctl start doctor
+  298  service doctor start
+  299  systemctl start doctor.service
+  300  history
+  301  rpm -qa erlang
+  302  rpm -qa doctor
+  303  rpm -ql doctor
+  304  rpm -ql docker
+  305  rpm -qa docker
+  306  systemctl start docker.service
+  307  systemctl status docker.service
+  308  docker run hello-world
+  309  doctor ps
+  310  docker ps
+  311  docker images 
+  312  lss
+  313  history
+  314  history > history.txt

@@ -1,0 +1,728 @@
+    1  ipconfig
+    2  ifconfig
+    3  Mount -t iso9660 /dev/cdrom /mnt 
+    4  mount -t iso9660 /dev/cdrom /mnt
+    5  cd Desktop
+    6  CD vmware-tools-distrib
+    7  cd vmware-tools-distrib
+    8  ./vmware-install.pl 
+    9  reboot
+   10  su
+   11  ls
+   12  cd ..
+   13  ls
+   14  cd root
+   15  ls
+   16  find -name gitlab*
+   17  cd ..
+   18  find -name gitlab*
+   19  cd /mnt/hgfs/share/
+   20  ls
+   21  cp /root
+   22  ls
+   23   cp gitlab-ce-8.9.6-ce.0.el6.x86_64.rpm  /root
+   24  ls
+   25  cd /root/
+   26  ls
+   27  sudo yum install curl openssh-server openssh-clients postfix cronie
+   28  sudo service postfix start
+   29  sudo chkconfig postfix on
+   30  sudo lokkit -s http -s ssh
+   31  ls
+   32  sudo rpm -i gitlab-ce-8.9.6-ce.0.el6.x86_64.rpm 
+   33  sudo gitlab-ctl reconfigure
+   34  cd /etc/gitlab/
+   35  vi gitlab.rb
+   36  cd /etc/gitlab/
+   37  vi gitlab.rb
+   38  sudo gitlab-ctl reconfigure
+   39  sudo gitlab-ctrl reconfigure
+   40  cd /etc/gitlab/
+   41  sudo gitlab-ctrl reconfigure
+   42  sudo gitlab-ctl reconfigure
+   43  cd /etc/gitlab/
+   44  ls
+   45  vi gitlab.rb
+   46  sudo gitlab-ctl reconfigure
+   47  cd /etc/sysconfig/
+   48  vi iptables
+   49  service iptables restart
+   50  vi iptables
+   51  service iptables restart
+   52  reboot
+   53  cd /etc/gitlab/
+   54  vi gitlab.rb
+   55  sudo gitlab-ctl reconfigure
+   56  sudo service postfix start
+   57  sudo chkconfig postfix on
+   58  sudo lokkit -s http -s ssh
+   59  sudo gitlab-ctl reconfigure
+   60  top
+   61  cd /usr/local/gitlab/
+   62  ls
+   63  ll
+   64  cd /etc/gitlab/
+   65  vi gitlab.rb
+   66  sudo gitlab-ctl reconfigure
+   67  top
+   68  sudo yum install curl openssh-server openssh-clients postfix cronie
+   69  sudo service postfix start
+   70  sudo chkconfig postfix on
+   71  sudo lokkit -s http -s ssh
+   72  sudo gitlab-ctl reconfigure
+   73  top
+   74  git
+   75  top
+   76  sudo gitlab-ctl reconfigure
+   77  ls
+   78  ps -ef|grep git
+   79  ps -ef|grep gitlab
+   80  vi gitlab.rb
+   81  ps -ef|grep gitlab
+   82  sudo gitlab-ctl reconfigure
+   83  ps -ef|grep gitlab
+   84  cd /etc/sysconfig/
+   85  /etc/sysconfig/iptables
+   86  sudo /etc/sysconfig/iptables
+   87  service iptables stauts
+   88  /etc/sysconfig/iptables
+   89  vi /etc/sysconfig/iptables
+   90  /etc/init.d/iptables restart
+   91  vi /etc/sysconfig/iptables
+   92  /etc/init.d/iptables restart
+   93  vi /etc/sysconfig/iptables
+   94  /etc/init.d/iptables restart
+   95  netstat -anlp |grep 8099
+   96  sudo gitlab-ctl reconfigure
+   97  cd /opt/gitlab/
+   98  ls
+   99  ll
+  100  sudo gitlab-ctl reconfigure
+  101  sudo gitlab-rake cache:clear
+  102  cd /opt/gitlab/
+  103  sudo -u git -H bundle exec rake cache:clear RAILS_ENV=production
+  104  sudo gitlab-rake cache:clear
+  105  cd /home/gitlab/gitlab/log/production.log
+  106  cd /opt/gitlab/gitlab/log/production.log
+  107  cd /opt/gitlab/
+  108  ll
+  109  cd /opt/gitlab/var/
+  110  ll
+  111  cd ..
+  112  cd service/
+  113  cd lo
+  114  ll
+  115  sudo gitlab-ctl reconfigure
+  116  cd /etc/gitlab/
+  117  vi gitlab.rb
+  118  gnome-panel
+  119  exit
+  120  cd /opt
+  121  cd nexus/
+  122  ll
+  123  cd nexus-3.4.0-02-unix/
+  124  ll
+  125  cd nexus-3.4.0-02/
+  126  ll
+  127  cd deploy/
+  128  ll
+  129  cd ..
+  130  cd bin
+  131  ll
+  132  ./contrib/
+  133  nexus
+  134  chomd 777 nexus
+  135  chomd nexus 777
+  136  chmod 700 nexus
+  137  ll
+  138  ./nexus run
+  139  ll
+  140  cd ..
+  141  cd /opt/nexus/
+  142  ll
+  143  cd nexus-2.14.0-01/
+  144  ll
+  145  cd bin/
+  146  ll
+  147  chmod 700 nexus
+  148  ll
+  149  ./nexus run
+  150  cd ..
+  151  cd /opt/nexus/
+  152  ll
+  153  ce nexus-2.14.4-03/
+  154  cd bin
+  155  ll
+  156  cd nexus-2.14.4-03/
+  157  ll
+  158  cd bin/
+  159  ll
+  160  chmod 700 nexus
+  161  ./nexus run
+  162  Missing platform binary: /opt/nexus/nexus-2.14.4-03/bin/../bin/jsw/linux-x86-64/wrapper
+  163  ./nexus run
+  164  pwd
+  165  cd jsw/
+  166  ll
+  167  cd linux-x86-64/
+  168  ll
+  169  chmod 700 wrapper 
+  170  cd ..
+  171  ll
+  172  ./nexus 
+  173  ./nexus run
+  174  ./nexus start
+  175  cd jsw/
+  176  ./nexus start
+  177  cd ..
+  178  ./nexus start
+  179  iptables status
+  180  iptables -h
+  181  iptables status
+  182  iptables -A INPUT -p tcp --dport 8081 -j ACCEPT 
+  183  iptables save
+  184  /etc/rc.d/init.d/iptables save
+  185  /etc/init.d/iptables restart
+  186  /etc/init.d/iptables status
+  187  ll
+  188  cd ..
+  189  ll
+  190  cd bin
+  191  ll
+  192  ./nexus 
+  193  ./nexus stop
+  194  ./nexus console
+  195  ./nexus
+  196  ./nexus status
+  197  ./nexus start
+  198  ./nexus status
+  199  /etc/init.d/iptables status
+  200  service iptables stop
+  201  service iptables start
+  202  /etc/init.d/iptables status
+  203  iptables -A INPUT -p all --dport 8081 -j ACCEPT
+  204  iptables -A INPUT -p tcp --dport 8081 -j ACCEPT
+  205  service iptables restart
+  206  service iptables status
+  207  service iptables restart
+  208  /etc/init.d/iptables status
+  209  service   iptables stop
+  210  service   iptables start
+  211  /etc/init.d/iptables status
+  212  service iptables restart 
+  213  /etc/init.d/iptables status
+  214  service iptables restart 
+  215  /etc/init.d/iptables status
+  216  git shortlog –numbered –summary
+  217  top
+  218  cd /usr/local/
+  219  top
+  220  sudo gitlab-ctl reconfigure
+  221  ps -ef|grep git
+  222  top
+  223  df -k
+  224  sudo gitlab-ctl reconfigure
+  225  /etc/sysctl.conf
+  226  sudo vim /etc/sysctl.conf
+  227  sudo gitlab-ctl reconfigure
+  228  sysctl -p
+  229  top
+  230  sudo gitlab-ctl help
+  231  sudo gitlab-ctl status
+  232  sudo gitlab-ctl tail
+  233  sudo gitlab-ctl reconfigure
+  234  top
+  235  cd /usr/local/
+  236  ll
+  237  cd /opt/nexus/
+  238  ll
+  239  cd nexus-2.14.4-03/
+  240  ll
+  241  cd bin/
+  242  ll
+  243  ./nexus 
+  244  ./nexus start
+  245  top
+  246  cd /home/gitlab/logs/gitlab-rails
+  247  netplwiz 
+  248  sudo gitlab-ctl status
+  249  sudo gitlab-rails console production
+  250  sudo gitlab-ctl tail redis
+  251  top
+  252  sudo gitlab-ctl status
+  253  sudo gitlab-ctl tail 
+  254  top
+  255  sudo gitlab-ctl tail 
+  256  gitlab-ctl tail unicorn
+  257  netstat -anp|grep 8080
+  258  ps -ef | grep 3347
+  259  netstat -anp|grep 8080
+  260  top
+  261  sudo gitlab-ctl tail 
+  262  top
+  263  ps -ef|grep java
+  264  cd /usr/local/
+  265  ls
+  266  cd /opt/
+  267  ls
+  268  top
+  269  pwd
+  270  ps -ef|grep java
+  271  netstat -tunl
+  272  ls
+  273  vim /etc/sysconfig/network-scripts/ifcfg-eth0 
+  274  fping
+  275  yum install fping
+  276  java -version
+  277  rpm -qa | grep java
+  278  cd 
+  279  pwd
+  280  cd install
+  281  ls
+  282  chmod 755 ./*
+  283  ll
+  284  tar -zxvf ./jdk-9.0.1_linux-x64_bin.tar.gz -C /opt
+  285  tar -zxvf ./jre-9.0.1_linux-x64_bin.tar.gz -C /opt
+  286  rpm -qa|grep java
+  287  rpm -e --nodeps java-1.7.0-openjdk-1.7.0.45-2.4.3.3.el6.x86_64
+  288  rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.66.1.13.0.el6.x86_64
+  289  vim /etc/profile
+  290  source /etc/profile
+  291  java -version
+  292  ./install_solr_service.sh solr-7.1.0.tgz
+  293  iptables.cmd state
+  294  cat /proc/version
+  295  lsb_release -a
+  296  service iptables status
+  297  vim /etc/sysconfig/iptables
+  298  service iptables restart
+  299  df
+  300  df -h
+  301  ps -ef|grep java
+  302  solr --help
+  303  cd /opt/
+  304  ls
+  305  cd solr
+  306  ls
+  307  cd bin
+  308  ls
+  309  ./solr status
+  310  ./solr healthcheck
+  311  ./solr healthcheck -z localhost:8983
+  312  ./solr healthcheck -z
+  313  ./solr create spm_attachment
+  314  ./solr create_core -help
+  315  ./solr create_core -c spm_attachment -d spm_attachment_configs
+  316  ./solr create_core -c spm_attachment
+  317  su -l solr
+  318  pwd
+  319  cd ../
+  320  pwd
+  321  ls
+  322  ll
+  323  cd ../
+  324  ls
+  325  ll
+  326  ./solr status
+  327  cd /solr/bin
+  328  cd solr/bin
+  329  ./solr status
+  330  cd /var/solr/data
+  331  ll
+  332  cd ../
+  333  ls
+  334  ll
+  335  cd ../
+  336  ls
+  337  ll
+  338  cd /opt/solr
+  339  cd bin
+  340  ll
+  341  su -l solr
+  342  service solr restart
+  343  ./solr create_core -c demo1
+  344  su -l solr
+  345  service solr restart
+  346  cd /var/config
+  347  cd /var/solr
+  348  ls
+  349  cd data
+  350  ls
+  351  ll
+  352  cd /var/solr
+  353  ls
+  354  cd data
+  355  ls
+  356  cd spm_attachment/
+  357  ls
+  358  cd conf
+  359  ls
+  360  cd ../
+  361  ls
+  362  cd data
+  363  ls
+  364  cd ../
+  365  ls
+  366  ll
+  367  cd ../
+  368  ls
+  369  ll
+  370  cd /
+  371  ls
+  372  find / -user "solr"
+  373  find / -user "solr" -name "_default"
+  374  cd /var/solr
+  375  ll
+  376  mkdir demo1_configs
+  377  ll
+  378  find / -name solrconfig.xml
+  379  vim /opt/solr-7.1.0/server/solr/configsets/_default/conf/solrconfig.xml
+  380  pwd
+  381  ls
+  382  cd data
+  383  ls
+  384  cd spm_attachment/
+  385  ls
+  386  cd conf
+  387  ls
+  388  vim solrconfig.xml 
+  389  cd /opt/solr
+  390  ls
+  391  cd dist
+  392  ls
+  393  cd ../
+  394  ls
+  395  vd server
+  396  ls
+  397  cd server/
+  398  ls
+  399  cd solr
+  400  ls
+  401  cd configsets
+  402  ls
+  403  cd /var/data
+  404  cd /var/solr
+  405  ls
+  406  rm -rf demo1_configs
+  407  ll
+  408  cd data
+  409  ;ls
+  410  ls
+  411  cd new_core/
+  412  ls
+  413  cd ../
+  414  rm -rf new_core
+  415  ls
+  416  cd ../
+  417  ls
+  418  cd ../
+  419  ls
+  420  cd solr
+  421  ls
+  422  cd data
+  423  ls
+  424  vim solr.xml 
+  425  vim zoo.cfg 
+  426  ll
+  427  service solr restart
+  428  ll
+  429  cd demo2
+  430  ls
+  431  cd conf
+  432  ll
+  433  cd ../
+  434  ls
+  435  cd ../
+  436  l
+  437  ls
+  438  vim solr.xml
+  439  cd ../
+  440  ls
+  441  vim solr-8983.pid
+  442  vim data
+  443  cd data
+  444  ls
+  445  vim zoo.cfg
+  446  cd demo2
+  447  ls
+  448  cd ../
+  449  cd spm_attachment/
+  450  ls
+  451  vim core.properties 
+  452  cd ../
+  453  ls
+  454  rm -rf demo2
+  455  service solr restart
+  456  ls
+  457  cd /opt/solr
+  458  ls
+  459  cd server/
+  460  ls
+  461  cd lib
+  462  ls
+  463  cd ../
+  464  ls
+  465  cd solr-webapp/
+  466  ls
+  467  cd webapp/
+  468  ls
+  469  cd libs/
+  470  ls
+  471  cd ../
+  472  ls
+  473  cd WEB-INF/
+  474  ls
+  475  cd lib
+  476  ls
+  477  pwd
+  478  service solr restart
+  479  java -version
+  480  ps -ef|grep java
+  481  cd /etc/
+  482  ls
+  483  chkconfig
+  484  cd init.d/
+  485  ls
+  486  vim solr
+  487  cd ../
+  488  cd rc.d/
+  489  ls
+  490  cd ../
+  491  ls
+  492  cd rc.d/
+  493  ls
+  494  cd init.d
+  495  ls
+  496  ll
+  497  serive solr restart
+  498  servive solr restart
+  499  service restart solr
+  500  service solr restart
+  501  ls
+  502  cd install
+  503  ls
+  504  chmod 755 jdk-7u80-linux-x64.tar.gz jre-7u80-linux-x64.tar.gz 
+  505  chmod 755 solr-5.5.5.tgz 
+  506  ll
+  507  tar -zxvf ./jdk-7u80-linux-x64.tar.gz -C /opt
+  508  tar -zxvf ./jre-7u80-linux-x64.tar.gz -C /opt
+  509  vim /etc/profile
+  510  . /etc/profile
+  511  java -version
+  512  source /etc/profile
+  513  java -version
+  514  vim /etc/profile
+  515  java -version
+  516  vim /etc/profile
+  517  echo $JAVA_HOME
+  518  echo $JRE_HOME
+  519  java -version
+  520  source /etc/profile
+  521  java -version
+  522  echo JAVA_HOME
+  523  echo $JAVA_HOME
+  524  cd /opt/jdk1.7.0_80/
+  525  ls
+  526  cd ../
+  527  ls
+  528  java -version
+  529  vim /etc/profile
+  530  java -version
+  531  ps -ef|grep java
+  532  ps -ef|grep git
+  533  netstat -tunl
+  534  cd /root/install
+  535  ls
+  536  ./install_solr_service.sh  solr-5.5.5.tgz -f
+  537  pwd
+  538  cd /var/solr
+  539  ls
+  540  ll
+  541  cd data
+  542  ls
+  543  rm -rf ./*
+  544  ll
+  545  cp "/opt/solr/server/solr/"{solr.xml,zoo.cfg} "/var/solr/data/"
+  546  ll
+  547  service solr start
+  548  cd /opt/solr
+  549  cd bin
+  550  ls
+  551  ./solr create --help
+  552  ./solr create_core spm_attachment
+  553  su -l solr
+  554  service solr restart
+  555  pwd
+  556  service solr restart
+  557  java -version
+  558  netstat -tunl
+  559  find / -name "nexus"
+  560  cd /opt/nexus
+  561  ls
+  562  cd nexus-2.14.4-03/
+  563  ls
+  564  cd bin
+  565  ls
+  566  ./nexus
+  567  pwd
+  568  cd /etc/init.d/
+  569  ls
+  570  /opt/nexus/nexus-2.14.4-03/bin
+  571  cd /opt/nexus/nexus-2.14.4-03/bin
+  572  ./nexus start
+  573  netstat -tunl
+  574  cd ../
+  575  ls
+  576  cd../
+  577  ls
+  578  cd ../
+  579  ls
+  580  cd sonatype-work/
+  581  ls
+  582  cd nexus
+  583  ls
+  584  cd ../
+  585  ls
+  586  cd nexus-2.14.4-03/
+  587  ls
+  588  cd bin
+  589  ls
+  590  ./nexus status
+  591  netstat -tunl
+  592  cd /opt
+  593  ls
+  594  cd solr
+  595  ls
+  596  l
+  597  ll
+  598  cd ../
+  599  ll
+  600  cd /etc/
+  601  ls
+  602  cd default/
+  603  ls
+  604  ll
+  605  service solr status
+  606  service solr stop
+  607  ll
+  608  cd ../
+  609  ls
+  610  service solr start
+  611  service solr stop
+  612  cd /opt/solr
+  613  ls
+  614  cd server
+  615  ls
+  616  ll
+  617  cd ..?
+  618  cd ../
+  619  lcd ../
+  620  ll
+  621  ccd ../
+  622  ll
+  623  cd ../
+  624  ll
+  625  ls
+  626  cd solr
+  627  ls
+  628  cd server/
+  629  ls
+  630  cd ../
+  631  cd solr-webapp
+  632  ls
+  633  cd server/
+  634  ls
+  635  cd solr-webapp/
+  636  ls
+  637  cd webapp/
+  638  ls
+  639  cd WEB-INF/
+  640  LS
+  641  ls
+  642  cd lib
+  643  ls
+  644  lll
+  645  ll
+  646  ps -ef|grep java
+  647  cd /opt/solr
+  648  ls
+  649  cd bin
+  650  ls
+  651  ./solr create  --help
+  652  ./solr create_core --help
+  653  ./solr create_core -c spm_attachment_test
+  654  history
+  655  ./solr create_core --help
+  656  service solr restart
+  657  su -l solr
+  658  service solr restart
+  659  service restart solr
+  660  service solr restart
+  661   cd /opt/solr
+  662  ls
+  663  cd server
+  664  ls
+  665  cd solr
+  666  ls
+  667  cd ../
+  668  ls
+  669  cd solr-webapp/
+  670  ls
+  671  service solr restart
+  672  cd /opt/solr
+  673  service solr restart
+  674  ps -ef|grep nexus
+  675  service solr status
+  676  cd /usr/local/
+  677  ls
+  678  cd /opt/
+  679  ls
+  680  cd /usr/local/
+  681  ll
+  682  cd src/
+  683  ll
+  684  ps -ef|grep nexus
+  685  find nexus
+  686  cd ..
+  687  ll
+  688  cd ..
+  689  ll
+  690  cd ..
+  691  ll
+  692  cd opt/
+  693  ll
+  694  cd nexus/
+  695  ll
+  696  cd nexus-2.14.4-03/
+  697  ll
+  698  cd bin/
+  699  ll
+  700  ./nexus 
+  701  ./nexus start
+  702  ./nexus stop
+  703  ./nexus start
+  704  ./nexus status
+  705  chmod 777 nexus
+  706  ll
+  707  ./nexus stop
+  708  ./nexus start
+  709  ll
+  710  cd ..
+  711  ll
+  712  cd logs/
+  713  ll
+  714  tail -f 1000 wrapper.log 
+  715  chk
+  716  chkconfig --help
+  717  chkconfig --list
+  718  cd /etc/init.d
+  719  ls
+  720  cd /usr/local/
+  721  ls
+  722  cd /opt
+  723  ls
+  724  vim /etc/profile
+  725  history
+  726  cd 
+  727  pwd
+  728  history > 172.16.3.193.history

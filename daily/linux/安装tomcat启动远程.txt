@@ -1,0 +1,1 @@
+tar -zxvf ./apache-tomcat-9.0.2.tar.gz -C /opt
