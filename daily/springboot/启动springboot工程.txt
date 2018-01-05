@@ -1,0 +1,10 @@
+java -jar xxx.jar --server.port=8888命令，等价于我们在application.properties中添加属性server.port=8888
+
+spring boot 多环境配置文件
+application-dev.properties：开发环境
+application-test.properties：测试环境
+application-prod.properties：生产环境
+至于哪个具体的配置文件会被加载，需要在application.properties文件中通过spring.profiles.active属性来设置，其值对应{profile}值。
+执行java -jar xxx.jar，可以观察到服务端口被设置为1111，也就是默认的开发环境（dev）
+执行java -jar xxx.jar --spring.profiles.active=test，可以观察到服务端口被设置为2222，也就是测试环境的配置（test）
+执行java -jar xxx.jar --spring.profiles.active=prod，可以观察到服务端口被设置为3333，也就是生产环境的配置（prod）
