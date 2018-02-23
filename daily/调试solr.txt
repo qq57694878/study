@@ -1,0 +1,6 @@
+solr start -f -a "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8988"
+solr start -f -a "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8988"
+su -c "SOLR_INCLUDE=/etc/default/solr.in.sh"
+
+su -c "SOLR_INCLUDE=/etc/default/solr.in.sh /opt/solr/bin/solr start -a \"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8988\"" - solr
+su - solr -c "lsnrctl start"

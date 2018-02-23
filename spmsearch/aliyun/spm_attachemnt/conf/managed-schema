@@ -123,6 +123,7 @@
     <field name="file_type" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="file_extension_name" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="file_content" type="text_ik" indexed="true" stored="true" multiValued="false"/>
+    <field name="file_content_store" type="text_ik" indexed="false" stored="true" multiValued="false"/>
     <field name="file_url" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="create_date" type="date" indexed="true" stored="true" multiValued="false"/>
     <fieldType name="text_ik" class="solr.TextField">
@@ -133,7 +134,6 @@
             <tokenizer class="org.wltea.analyzer.lucene.IKTokenizerFactory" useSmart="true" />
         </analyzer>
     </fieldType>
-
     <field name="_version_" type="long" indexed="true" stored="true"/>
     <field name="_root_" type="string" indexed="true" stored="false"/>
     <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
