@@ -57,7 +57,7 @@ public class TestRestBussinessBase extends TestRestBase{
     public void getToken()throws Exception {
         this.token="7c9f0b20-e175-40a2-8cf1-bb7a1d3a11da";
     }
-    public void setUp() {
+/*    public void setUp() {
         final String token1 = this.token;
         this.documentationFilter = document("{ClassName}/{methodName}",
                 preprocessRequest(),preprocessResponse(prettyPrint()));
@@ -66,9 +66,9 @@ public class TestRestBussinessBase extends TestRestBase{
                         .snippets().withEncoding("UTF-8")).addFilter(documentationFilter).setContentType(ContentType.URLENC)
                 .build();
         //this.spec = new RequestSpecBuilder().addFilter(documentationConfiguration(this.restDocumentation).snippets().withTemplateFormat(TemplateFormats.markdown())).build();
-    }
+    }*/
 
-    /*public void setUp() {
+    public void setUp() {
         final String token1 = this.token;
         this.documentationFilter = document("{className}/{methodName}",
                 preprocessRequest(new OperationPreprocessorAdapter() {
@@ -105,6 +105,6 @@ public class TestRestBussinessBase extends TestRestBase{
                         .snippets().withEncoding("UTF-8")).addFilter(documentationFilter).setContentType(ContentType.URLENC)
                 .build();
         //this.spec = new RequestSpecBuilder().addFilter(documentationConfiguration(this.restDocumentation).snippets().withTemplateFormat(TemplateFormats.markdown())).build();
-    }*/
+    }
 
 }

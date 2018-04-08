@@ -9,6 +9,13 @@ import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import javax.persistence.EntityManager;
 import java.io.Serializable;
 import java.util.List;
+
+/**
+ * 自定义BaseRepository 的默认实现
+ * @Author ljl
+ * @param <T>
+ * @param <ID>
+ */
 public class BaseRepositoryImpl <T, ID extends Serializable>extends SimpleJpaRepository<T, ID> implements BaseRepository<T, ID>  {
 
     /**
