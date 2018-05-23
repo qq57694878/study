@@ -8,3 +8,5 @@ jquery datatables :   https://www.datatables.net/download/index
 
 https://www.juhe.cn/docs 发送短信
 http://v.juhe.cn/sms/send
+yolo clickhourse labelimg
+yolo：https://pjreddie.com/darknet/yolo/
