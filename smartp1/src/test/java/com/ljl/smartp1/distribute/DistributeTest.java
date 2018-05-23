@@ -57,7 +57,8 @@ public class DistributeTest {
         void doTask() {
             System.out.println(Thread.currentThread().getName() + " start");
             Random random = new Random();
-            int _int = random.nextInt(200);
+            int _int = random.nextInt(5);
+            _int = _int*1000;
             System.out.println(Thread.currentThread().getName() + " sleep " + _int + "millis");
             try {
                 Thread.sleep(_int);
