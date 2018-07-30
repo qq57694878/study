@@ -6,5 +6,6 @@ public class TestSpecialChar {
         for(int i=0;i<s.length();i++){
             System.out.println((int)s.charAt(i));
         }
+        System.out.println(System.currentTimeMillis()/1000);
     }
 }
