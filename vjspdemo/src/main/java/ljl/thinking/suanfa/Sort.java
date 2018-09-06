@@ -14,7 +14,7 @@ public class Sort {
        // Sort.bubbleSort(data,0,data.length-1);
       //  Sort.quickSort(data,0,data.length-1);
        // int[] temp = Arrays.copyOfRange(data,0,data.length);
-       // Sort.mergeSort(data,temp,0,data.length-1);
+        // Sort.mergeSort(data,temp,0,data.length-1);
       //  Sort.mergeSortGj(data,temp,0,data.length-1);
         Sort.shellSort(data,0,data.length-1);
         System.out.println(Arrays.toString(data));
@@ -117,10 +117,11 @@ public class Sort {
     public static int partition(int[]data, int low, int high){
         int temp = data[low];
         while(low<high){
-            while(low<high&&data[high]>=temp){high--;}
-            swap(data,low,high);
-            while(low<high&data[low]<=temp){low++;}
-            swap(data,low,high);
+            while(data[high]>=temp){high--;}
+            while(data[low]<=temp){low++;}
+            if(low<high){
+                swap(data,low,high);
+            }
         }
         return low;
     }

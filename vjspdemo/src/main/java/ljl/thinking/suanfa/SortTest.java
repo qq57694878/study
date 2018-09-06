@@ -16,7 +16,8 @@ public class SortTest {
         //int[]temp=new int[data.length];
        // mergeSort(data,temp,0,data.length-1);
        // shellSort(data,0,data.length-1);
-        popSort(data,0,data.length-1);
+        //popSort(data,0,data.length-1);
+        quickSortV2(data,0,data.length-1);
         System.out.println(Arrays.toString(data));
     }
 
@@ -108,5 +109,29 @@ public class SortTest {
         int temp = data[i];
         data[i]= data[j];
         data[j]=temp;
+    }
+
+    public static void quickSortV2(int[] data, int low, int high){
+        int mid = (low+high)/2;
+        int i=low,j= high;
+        while(i<j){
+            while(data[i]<data[mid]){
+                i++;
+            }
+            while(data[j]>data[mid]){
+                j--;
+            }
+            if(i<j){
+                swap(data,i,j);
+                i++;
+                j--;
+            }
+        }
+        if(low<high){
+            quickSortV2(data,low,mid);
+            quickSortV2(data,mid+1,high);
+        }
+
+
     }
 }

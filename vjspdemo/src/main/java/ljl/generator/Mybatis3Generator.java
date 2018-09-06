@@ -1,11 +1,5 @@
 package ljl.generator;
 
-import org.mybatis.generator.api.GeneratedJavaFile;
-import org.mybatis.generator.api.GeneratedXmlFile;
-import org.mybatis.generator.api.MyBatisGenerator;
-import org.mybatis.generator.config.Configuration;
-import org.mybatis.generator.config.xml.ConfigurationParser;
-import org.mybatis.generator.internal.DefaultShellCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +9,12 @@ import java.util.List;
  */
 public class Mybatis3Generator {
     public static void main(String[] args) throws Exception {
-        generateJavaFiles("/generator/demoGeneratorConfig.xml");
+        //generateJavaFiles("/generator/demoGeneratorConfig.xml");
     }
 
 
 
-
+/*
     public static void generateJavaFiles(String configFile) throws Exception {
         List<String> warnings = new ArrayList<String>();
         ConfigurationParser cp = new ConfigurationParser(warnings);
@@ -32,5 +26,5 @@ public class Mybatis3Generator {
         myBatisGenerator.generate(null, null, null, true);
         List<GeneratedXmlFile> xmlFiles = myBatisGenerator.getGeneratedXmlFiles();
         List<GeneratedJavaFile> javaFiles =  myBatisGenerator.getGeneratedJavaFiles();
-    }
+    }*/
 }
