@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function formatMoney(money){
+        if (!money) return '0.00';
+        var m = Number(money).toFixed(2);
+        if (money < 1000) return m;
+        var ms = m.split(".");
+        var intPart = ms[0]; //获取整数部分
+        var reg = /(\d)(?=(?:\d{3})+$)/g;
+        var intPartFormat = ms[0].replace(reg, '$1,'); //将整数部分逢三一断
+        return intPartFormat+"."+ms[1];
+    }
+    function a(v){
+        var value = formatMoney(v);
+        document.getElementById("view").innerHTML = value;
+
+    }
+</script>
+<input type="text" oninput="a(this.value)">
+<div id="view"></div>
+</body>
+</html>
