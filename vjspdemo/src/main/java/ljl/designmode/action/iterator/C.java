@@ -54,7 +54,7 @@ class MyCollection<T> implements Collection<T>{
 		}
 
 		@Override public boolean hasNext() {
-			if(index<size-1){
+			if(index<size()-1){
 				return true;
 			}
 			return false;
@@ -63,6 +63,13 @@ class MyCollection<T> implements Collection<T>{
 }
 public class C {
 	public static void main(String[] args) {
-		Collection collection = new MyCollection(10);
+		Collection<Integer> collection = new MyCollection<Integer>(10);
+		collection.add(1);
+		collection.add(2);
+		collection.add(3);
+		Iterator iter = collection.iterator();
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
 	}
 }
