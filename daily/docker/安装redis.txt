@@ -1,0 +1,9 @@
+docker run -p 6379:6379 -v $PWD/data:/data  -d redis redis-server --appendonly yes
+
+
+docker run -p 6379:6379 -v $PWD/redis.conf:/usr/local/etc/redis/redis.conf -v $PWD/data:/data  -d redis redis-server /usr/local/etc/redis/redis.conf --appendonly yes
+
+
+
+docker swarm join --token SWMTKN-1-18dyicqgj43igt92poqzfcoratv1uvwls9c9215des5dhs3ngw-dj96m0t1hzcnst21t6sa44xgf 192.168.0.4:2377
+docker swarm join --token SWMTKN-1-18dyicqgj43igt92poqzfcoratv1uvwls9c9215des5dhs3ngw-dj96m0t1hzcnst21t6sa44xgf 182.61.166.15:2377
