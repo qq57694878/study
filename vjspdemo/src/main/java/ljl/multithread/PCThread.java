@@ -59,9 +59,10 @@ class MyBlockingSync<T> implements IBlocking<T>{
 class MyBlocking<T> implements  IBlocking<T>{
 	private Object[] data;
 	private int index;
-	private static java.util.concurrent.locks.Lock lock  = new ReentrantLock();
-	private static Condition putCondition =  	lock.newCondition();
-	private static Condition getCondition =  	lock.newCondition();
+	private  java.util.concurrent.locks.Lock putLock  = new ReentrantLock();
+	private  java.util.concurrent.locks.Lock getLock  = new ReentrantLock();
+	private  Condition putCondition =  	putLock.newCondition();
+	private  Condition getCondition =  	getLock.newCondition();
 	private int size;
 	public MyBlocking(int len){
 		data = new Object[len];
@@ -71,35 +72,57 @@ class MyBlocking<T> implements  IBlocking<T>{
 
 	@Override public T get() {
 		Object result =null;
-		lock.lock();
+		getLock.lock();
 		try{
 			while(index<0){
 				getCondition.await();
 			}
 			result = data[index--];
-			putCondition.signalAll();
+			if(index>0){
+				getCondition.signal();
+			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {
-			lock.unlock();
+			getLock.unlock();
 		}
+		signalPutCondition();
 		return (T)result;
 	}
 
 	@Override public void put(T t) {
-		lock.lock();
+		putLock.lock();
 		try {
 			while(index>=size-2){
 				putCondition.await();
 			}
 			data[++index]= t;
-			getCondition.signalAll();
+			if(index<size-1){
+				putCondition.signal();
+			}
 		}catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {
-			lock.unlock();
+			putLock.unlock();
 		}
+		signalGetCondition();
 
+	}
+	private void signalGetCondition(){
+		getLock.lock();
+		try {
+			getCondition.signal();
+		}finally {
+			getLock.unlock();
+		}
+	}
+	private void signalPutCondition(){
+		putLock.lock();
+		try {
+			putCondition.signal();
+		}finally {
+			putLock.unlock();
+		}
 	}
 }
 class Goods{
@@ -164,11 +187,11 @@ public class PCThread {
 	public static void main(String[] args) {
 		//IBlocking container = new MyBlocking(10);
 		IBlocking container = new MyBlockingSync(10);
-		for(int i=0;i<1;i++){
+		for(int i=0;i<10;i++){
 			Customer customer = new Customer(container,i);
 			new Thread(customer).start();
 		}
-		for(int i=0;i<11;i++){
+		for(int i=0;i<10;i++){
 			Productor productor = new Productor(container,i);
 			new Thread(productor).start();
 		}
