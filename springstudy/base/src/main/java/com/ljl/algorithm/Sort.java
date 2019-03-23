@@ -51,8 +51,6 @@ public class Sort {
             quickSort(data,pos+1,high);
         }
 
-    }
-
     private static int partition(int[] data, int low, int high) {
         int temp = data[low];
         while(low<high){
