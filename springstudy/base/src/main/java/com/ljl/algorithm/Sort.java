@@ -44,22 +44,21 @@ public class Sort {
 
     }
 
-    public static void quickSort(int[]data,int low,int high){
-        if(low<high){
-            int pos = partition(data,low,high);
-            quickSort(data,low,pos-1);
-            quickSort(data,pos+1,high);
+    public static void quickSort(int[]data,int low,int high) {
+        if (low < high) {
+            int pos = partition(data, low, high);
+            quickSort(data, low, pos - 1);
+            quickSort(data, pos + 1, high);
         }
+    }
 
     private static int partition(int[] data, int low, int high) {
         int temp = data[low];
         while(low<high){
-            if(low<high){
                 while(low<high&&data[high]>=temp){high--;}
                 swap(data,high,low);
                 while(low<high&&data[low]<=temp){low++;}
                 swap(data,low,high);
-            }
         }
         return low;
     }
