@@ -1,15 +1,17 @@
 package com.ljl.algorithm;
 
 import java.io.*;
+import java.lang.reflect.Method;
+import java.util.Arrays;
 
 /**
  * Created by zejian on 2017/6/21.
  * Blog : http://blog.csdn.net/javazejian [原文地址,请尊重原创]
  */
-public class FileClassLoader extends ClassLoader {
+public class FilesClassLoader extends ClassLoader {
 	private String rootDir;
 
-    public FileClassLoader(String rootDir) {
+    public FilesClassLoader(String rootDir) {
         this.rootDir = rootDir;
     }
 
@@ -67,16 +69,33 @@ public class FileClassLoader extends ClassLoader {
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        String rootDir="F:\\ideaworkspace\\m\\study\\springstudy\\base\\target\\classes\\";
+        String rootDir="F:\\ideaworkspace\\w\\aigs\\aigs-wechat\\target\\classes\\";
+        String classPackage="cn.com.jldata.aigs.wechat.controller";
         //创建自定义文件类加载器
-        FileClassLoader loader = new FileClassLoader(rootDir);
-
+        FilesClassLoader loader = new FilesClassLoader(rootDir);
+        StringBuilder sb = new StringBuilder();
+        Arrays.asList(classPackage.split("\\.")).forEach(item->{sb.append(item).append("\\");});
         try {
+            File toot = new File(rootDir+sb.toString());
+           String[] fileNames =  toot.list(new FilenameFilter() {
+                @Override public boolean accept(File dir, String name) {
+                  if(name.split("\\.")[1].equals("class"))  return true;
+                    return false;
+                }
+            });
             //加载指定的class文件
-            Class<?> object1=loader.loadClass("com.ljl.algorithm.DemoObj");
-            System.out.println(object1.getConstructor(String.class).newInstance("1111"));
+            for (int i = 0; i <fileNames.length ; i++) {
+                Class<?> c=loader.loadClass(classPackage+"."+fileNames[i].split("\\.")[0]);
+                String aa[]=c.getName().split("\\.");
+                System.out.println(aa[aa.length-1]);
 
-            //输出结果:I am DemoObj
+//               for(Method m:c.getMethods()) {
+//                   System.out.println(c.getSimpleName()+"."+m.getName());
+//               }
+
+            }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,7 +103,7 @@ public class FileClassLoader extends ClassLoader {
     public static void test1(String[] args) throws ClassNotFoundException {
         String rootDir="F:\\ideaworkspace\\m\\study\\springstudy\\base\\target\\classes\\";
         //创建自定义文件类加载器
-        FileClassLoader loader = new FileClassLoader(rootDir);
+        FilesClassLoader loader = new FilesClassLoader(rootDir);
 
         try {
             //加载指定的class文件
