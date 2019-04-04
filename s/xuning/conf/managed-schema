@@ -118,7 +118,7 @@
     <field name="filenames" type="text_ik" indexed="true" stored="true" multiValued="false"/>
     <field name="type" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="remark" type="text_ik" indexed="true" stored="true" multiValued="false"/>
-    <field name="create_date" type="date" indexed="true" stored="true" multiValued="false"/>
+    <field name="create_date" type="pdate" indexed="true" stored="true" multiValued="false"/>
 
     <fieldType name="text_ik" class="solr.TextField">
         <analyzer type="index">

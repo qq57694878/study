@@ -52,7 +52,7 @@ public class XuningController {
 		return new RestResult(attachment);
 	}
 	@RequestMapping("create")
-	public RestResult create(@RequestBody Article article){
+	public RestResult create(@RequestBody Article article)throws Exception{
 		xuningService.create(article);
 		return new RestResult();
 	}

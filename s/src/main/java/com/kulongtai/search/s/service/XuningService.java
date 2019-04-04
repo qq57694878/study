@@ -2,6 +2,7 @@ package com.kulongtai.search.s.service;
 
 import com.kulongtai.search.s.model.Article;
 import org.apache.solr.client.solrj.SolrClient;
+import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
@@ -33,7 +34,17 @@ public class XuningService {
 	public void delete(String id) {
 	}
 
-	public void create(Article article) {
+	public void create(Article article) throws Exception{
+		SolrInputDocument solrInputDocument =new SolrInputDocument();
+		solrInputDocument.addField("id",String.valueOf(article.getId()));
+		solrInputDocument.addField("title",article.getTitle());
+		solrInputDocument.addField("content",article.getContent());
+		solrInputDocument.addField("filenames",article.getFilenames());
+		solrInputDocument.addField("remark",article.getRemark());
+		solrInputDocument.addField("type",article.getType());
+		solrInputDocument.addField("create_date",article.getCreate_date());
+		solrClient.add(solrInputDocument);
+		solrClient.commit();
 	}
 
 	public Article findOne(String id) {
