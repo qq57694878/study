@@ -5,12 +5,11 @@ import com.kulongtai.search.s.model.Article;
 import com.kulongtai.search.s.service.XuningService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -21,6 +20,26 @@ import java.util.Map;
  * @author lijinliang
  * Date: 2019/4/4 16:45
  */
+class PageParam{
+	private int pageNumber;
+	private int pageSize;
+
+	public int getPageNumber() {
+		return pageNumber;
+	}
+
+	public void setPageNumber(int pageNumber) {
+		this.pageNumber = pageNumber;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+}
 @RequestMapping("xuning")
 @RestController
 public class XuningController {
@@ -39,30 +58,31 @@ public class XuningController {
 	}
 
 
-	@RequestMapping("search")
-	public RestResult search(@RequestParam("term") String query,
-			@PageableDefault(page = 0, size = 1) Pageable pageable) throws Exception {
-		Page<Article> list  = xuningService.search(query,pageable);
+	@RequestMapping(value = "search",method = RequestMethod.GET)
+	public RestResult search(@RequestParam("q") String q,@RequestParam("pageNumber") int pageNumber,@RequestParam("pageSize") int pageSize,
+			PageParam ppp ) throws Exception {
+		Pageable pageable = PageRequest.of(pageNumber,pageSize);
+		Page<Article> list  = xuningService.search(q,pageable);
 		return new RestResult(list);
 	}
 
-	@RequestMapping("findOne")
-	public RestResult findOne(@RequestBody String id){
+	@RequestMapping(value = "findOne",method = RequestMethod.GET)
+	public RestResult findOne(@RequestParam("id") String id)throws Exception{
 		Article attachment  = xuningService.findOne(id);
 		return new RestResult(attachment);
 	}
-	@RequestMapping("create")
+	@RequestMapping(value ="create",method = RequestMethod.POST)
 	public RestResult create(@RequestBody Article article)throws Exception{
 		xuningService.create(article);
 		return new RestResult();
 	}
-	@RequestMapping("delete")
-	public RestResult delete(@RequestBody String id){
+	@RequestMapping(value = "delete",method = RequestMethod.GET)
+	public RestResult delete(@RequestParam("id") String id)throws Exception{
 		xuningService.delete(id);
 		return new RestResult();
 	}
-	@RequestMapping("update")
-	public RestResult update(@RequestBody Article article){
+	@RequestMapping(value ="update",method = RequestMethod.POST)
+	public RestResult update(@RequestBody Article article)throws Exception{
 		xuningService.update(article);
 		return new RestResult();
 	}

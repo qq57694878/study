@@ -115,7 +115,7 @@
     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="title" type="text_ik" indexed="true" stored="true" multiValued="false"/>
     <field name="content" type="text_ik" indexed="true" stored="true" multiValued="false"/>
-    <field name="filenames" type="text_ik" indexed="true" stored="true" multiValued="false"/>
+    <field name="filenames" type="text_ik" indexed="true" stored="true" multiValued="true"/>
     <field name="type" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="remark" type="text_ik" indexed="true" stored="true" multiValued="false"/>
     <field name="create_date" type="pdate" indexed="true" stored="true" multiValued="false"/>

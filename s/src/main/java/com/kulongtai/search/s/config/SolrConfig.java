@@ -17,8 +17,8 @@ import org.springframework.context.annotation.Configuration;
 public class SolrConfig {
 	@Value("${solr.host}")
 	private String solrHost;
-	@Bean("solrClientNuning")
-	public SolrClient solrClientNuning() {
+	@Bean("solrClient")
+	public SolrClient solrClientXuning() {
 		String urlString = solrHost+"/xuning";
 		SolrClient solr = new HttpSolrClient.Builder(urlString).build();
 		return solr;
